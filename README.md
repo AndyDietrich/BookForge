@@ -8,7 +8,7 @@ Generate authoritative, research-backed non-fiction books with advanced AI techn
 
 ---
 
-## 🎯 Features
+## Features
 
 ### **Non-Fiction Specialized**
 - **Expert Content Generation**: Authority-building, research-based writing
@@ -33,7 +33,7 @@ Generate authoritative, research-backed non-fiction books with advanced AI techn
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. **Setup API**
 1. Go to **Settings** tab
@@ -50,7 +50,7 @@ Generate authoritative, research-backed non-fiction books with advanced AI techn
 
 ---
 
-## 📚 Supported Categories
+## Supported Categories
 
 | **Category** | **Focus** |
 |--------------|-----------|
@@ -69,7 +69,7 @@ Generate authoritative, research-backed non-fiction books with advanced AI techn
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### **Recommended Settings**
 - **Model**: Claude Sonnet 4 (best quality & cost balance)
@@ -83,7 +83,7 @@ Generate authoritative, research-backed non-fiction books with advanced AI techn
 
 ---
 
-## 💡 Professional Tips
+## Professional Tips
 
 ### **Authority Building**
 - Use feedback loops for credibility and clarity
@@ -105,7 +105,7 @@ Generate authoritative, research-backed non-fiction books with advanced AI techn
 
 ---
 
-## 🛠️ Technical Requirements
+## Technical Requirements
 
 - **Modern Browser**: Chrome 80+, Firefox 75+, Safari 13+, Edge 80+
 - **JavaScript Enabled**: Required for all functionality
@@ -114,7 +114,7 @@ Generate authoritative, research-backed non-fiction books with advanced AI techn
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```
 bookforge-ai/
@@ -128,7 +128,7 @@ bookforge-ai/
 
 ---
 
-## 🔐 Privacy & Security
+## Privacy & Security
 
 - **Local Storage**: All projects stored locally in your browser
 - **No External Servers**: Content never leaves your device
@@ -137,7 +137,7 @@ bookforge-ai/
 
 ---
 
-## 💬 Support & Contact
+## Support & Contact
 
 **Developer**: Andreas Dietrich  
 **Email**: dietrichandreas2@t-online.de  
@@ -156,12 +156,12 @@ BookForge AI is free to use! Support continued development:
 
 ---
 
-## 📄 License
+## License
 
 MIT License - Free for personal and commercial use
 
 ---
 
-**Ready to forge expert knowledge? 📚🔨**
+**Ready to forge expert knowledge?**
 
 *Generate your next authoritative guide with BookForge AI*
