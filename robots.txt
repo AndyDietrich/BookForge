@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block access to sensitive files and directories
+Disallow: /script.js
+Disallow: /styles.css
+Disallow: /*.json$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /admin/
+Disallow: /api/keys/
+Disallow: /config/
+Disallow: /private/
+
+# Allow access to important resources
+Allow: /favicon.ico
+Allow: /favicon.svg
+Allow: /apple-touch-icon.png
+Allow: /og-image.jpg
+Allow: /twitter-image.jpg
+Allow: /manifest.json
+
+# Sitemap location
+Sitemap: https://bookforge.ai/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1

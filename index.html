@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookForge AI - Create Professional Non-Fiction Books with AI | Expert Knowledge Creator</title>
+    <meta name="description" content="Generate complete professional non-fiction books with AI. Create business guides, self-help books, educational content, and expert knowledge books. Try BookForge AI free today!">
+    <meta name="keywords" content="AI book generator, non-fiction writing AI, business book creator, self-help generator, AI author, educational content generator, book forge, AI writing tool, automated book creation">
+    <meta name="author" content="BookForge AI">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="BookForge AI - Create Professional Non-Fiction Books with AI">
+    <meta property="og:description" content="Generate complete professional non-fiction books with AI. Create business guides, self-help books, and educational content.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bookforge.ink">
+    <meta property="og:image" content="https://bookforge.ink/og-image.jpg">
+    <meta property="og:site_name" content="BookForge AI">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BookForge AI - Create Professional Non-Fiction Books with AI">
+    <meta name="twitter:description" content="Generate complete professional non-fiction books with AI for business, self-help, education and more.">
+    <meta name="twitter:image" content="https://bookforge.ink/twitter-image.jpg">
+    <meta name="twitter:site" content="@bookforge">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bookforge.ink">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BookForge AI",
+        "description": "Fully automated AI-powered non-fiction book generator for creating professional business guides, self-help books, and educational content",
+        "url": "https://bookforge.ink",
+        "applicationCategory": "Writing Tool",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" sizes="any">
+</head>
+<body data-theme="light">
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="app-title">BookForge AI</h1>
+                    <p class="app-subtitle">Forge expert knowledge books</p>
+                </div>
+                <div class="header-right">
+                    <div class="theme-selector-container">
+                        <select class="theme-selector" id="theme-select" onchange="changeTheme()">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="fun">Color</option>
+                        </select>
+                    </div>
+                    <button class="header-btn" onclick="estimateCosts()">
+                        <span class="label">Cost Estimate</span>
+                    </button>
+                    <button class="header-btn" onclick="showFeedbackForm()">
+                        <span class="label">Feedback</span>
+                    </button>
+                    <button class="header-btn" onclick="showDonationModal()">
+                        <span class="label">Donate</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Project Management -->
+        <div class="project-bar">
+            <div class="project-controls">
+                <div class="project-select-wrapper">
+                    <div class="project-menu">
+                        <select id="project-select" class="project-selector" onchange="handleProjectAction(this.value)">
+                            <option value="current">Current Project</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <button class="btn btn-ghost btn-sm" onclick="newProject()">
+                        <span class="label">New</span>
+                    </button>
+                    <button class="btn btn-ghost btn-sm" onclick="saveProject()">
+                        <span class="label">Save</span>
+                    </button>
+                    <button class="btn btn-ghost btn-sm" onclick="manageProjects()">
+                        <span class="label">Manage</span>
+                    </button>
+                    <button class="btn btn-ghost btn-sm" id="delete-project-btn" onclick="deleteCurrentProject()" style="display: none;">
+                        <span class="label">Delete</span>
+                    </button>
+                </div>
+                <input type="file" id="project-file" style="display: none;" accept=".json" onchange="importProject(event)">
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="nav-progress">
+                <div class="progress-line" id="nav-progress-line"></div>
+            </div>
+            <div class="nav-items">
+                <button class="nav-item" onclick="showStep('settings')" data-step="settings">
+                    <span class="nav-label">Settings</span>
+                </button>
+                <button class="nav-item active" onclick="showStep('setup')" data-step="setup">
+                    <span class="nav-label">Book Setup</span>
+                </button>
+                <button class="nav-item" onclick="showStep('outline')" data-step="outline">
+                    <span class="nav-label">Book Outline</span>
+                </button>
+                <button class="nav-item" onclick="showStep('research')" data-step="research">
+                    <span class="nav-label">Research & Planning</span>
+                </button>
+                <button class="nav-item" onclick="showStep('writing')" data-step="writing">
+                    <span class="nav-label">Writing</span>
+                </button>
+                <button class="nav-item" onclick="showStep('export')" data-step="export">
+                    <span class="nav-label">Export</span>
+                </button>
+                <button class="nav-item" onclick="showStep('tutorial')" data-step="tutorial">
+                    <span class="nav-label">Tutorial</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Setup Step -->
+            <div id="setup" class="step active">
+                <div class="step-header">
+                    <h2 class="step-title">Book Setup</h2>
+                    <p class="step-description">Define your non-fiction book's foundation and target knowledge goals</p>
+                </div>
+
+                <div class="step-content">
+                    <!-- Book Configuration -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="category">Book Category</label>
+                            <select id="category" onchange="updateCategoryRequirements()">
+                                <option value="">Select a category...</option>
+                                <option value="business">Business & Entrepreneurship</option>
+                                <option value="self-help">Self-Help & Personal Development</option>
+                                <option value="health">Health & Wellness</option>
+                                <option value="technology">Technology & Programming</option>
+                                <option value="history">History & Biography</option>
+                                <option value="science">Science & Education</option>
+                                <option value="finance">Finance & Investment</option>
+                                <option value="travel">Travel & Lifestyle</option>
+                                <option value="cooking">Cooking & Food</option>
+                                <option value="arts">Arts & Crafts</option>
+                                <option value="politics">Politics & Social Issues</option>
+                                <option value="religion">Religion & Spirituality</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="target-audience">Target Audience</label>
+                            <select id="target-audience" onchange="updateAudienceRequirements()">
+                                <option value="">Select target audience...</option>
+                                <option value="beginners">Beginners/Novices</option>
+                                <option value="intermediate">Intermediate Practitioners</option>
+                                <option value="advanced">Advanced/Experts</option>
+                                <option value="professionals">Business Professionals</option>
+                                <option value="students">Students & Academics</option>
+                                <option value="general">General Public</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="category-requirements" class="info-card" style="display: none;">
+                        <h4>Category-Specific Guidelines</h4>
+                        <div id="category-requirements-content"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Main Topic & Purpose</label>
+                        <div class="textarea-container">
+                            <textarea id="topic" placeholder="What is your book about? What problem does it solve or knowledge does it share? What will readers learn or achieve?" oninput="autoSave(); updateWordCount();"></textarea>
+                            <div class="word-count" id="topic-word-count">0 words</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="approach">Writing Approach & Tone</label>
+                        <div class="textarea-container">
+                            <textarea id="approach" placeholder="Describe your writing style and approach (e.g., practical, academic, conversational, step-by-step, research-heavy, example-driven...)" oninput="autoSave(); updateWordCount();"></textarea>
+                            <div class="word-count" id="approach-word-count">0 words</div>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="num-chapters">Number of Chapters</label>
+                            <input type="number" id="num-chapters" min="5" max="50" value="15" oninput="updateChapterEstimate()">
+                            <div class="form-hint" id="chapter-estimate">Estimated book length: ~30,000 words</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="target-word-count">Target Words per Chapter</label>
+                            <input type="number" id="target-word-count" min="1000" max="8000" value="2000">
+                            <div class="form-hint">Recommended: 1500-3000 for most non-fiction</div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons at Bottom -->
+                    <div class="setup-actions">
+                        <div class="random-idea-section">
+                            <button class="btn btn-secondary" onclick="generateRandomIdea()" id="random-idea-btn" style="display: none;">
+                                <span class="label">Generate Book Idea</span>
+                            </button>
+                            <p class="random-idea-hint">Select category and target audience first, then generate a unique book idea!</p>
+                        </div>
+
+                        <div class="main-setup-actions">
+                            <button class="btn btn-primary btn-large" onclick="collectBookData(); autoSave(); showStep('outline')">
+                                <span class="label">Start Creating Book</span>
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="startOneClickGeneration()">
+                                <span class="label">1-Click Generation</span>
+                            </button>
+                        </div>
+
+                        <div class="secondary-actions">
+                            <button class="btn btn-danger btn-sm" onclick="resetEverything()">
+                                <span class="label">Reset & Start New</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Outline Step -->
+            <div id="outline" class="step">
+                <div class="step-header">
+                    <h2 class="step-title">Book Outline & Structure</h2>
+                    <p class="step-description">Create your book's logical structure and chapter framework</p>
+                </div>
+
+                <div class="step-content">
+                    <!-- Primary Generation Actions -->
+                    <div class="primary-actions-section">
+                        <div class="main-generation-actions">
+                            <button class="btn btn-primary btn-large" onclick="generateOutline()">
+                                <span class="label">Generate Book Outline</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="regenerateOutline()">
+                                <span class="label">Regenerate</span>
+                            </button>
+                            <button class="btn btn-ghost" onclick="clearOutlineContent()">
+                                <span class="label">Clear Content</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Content Field -->
+                    <div class="form-group">
+                        <label for="outline-content">Book Outline & Structure</label>
+                        <div class="textarea-container">
+                            <textarea id="outline-content" 
+                                    placeholder="Type or paste your book outline here, or use AI generation above..." 
+                                    rows="20"
+                                    oninput="saveOutlineContent()"></textarea>
+                            <div class="word-count" id="outline-word-count">0 words</div>
+                        </div>
+                        <div class="form-hint">Enter your complete book structure including chapter breakdown, key concepts, logical flow, etc.</div>
+                    </div>
+
+                    <!-- Advanced Settings & Quality Enhancement -->
+                    <div class="collapsible-section">
+                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
+                            <span class="toggle-icon">▼</span>
+                            <h3>Advanced Settings & Quality Enhancement</h3>
+                        </div>
+                        <div class="collapsible-content">
+                            <div class="feedback-controls">
+                                <h4>Quality Enhancement & Feedback</h4>
+                                <div class="feedback-options">
+                                    <label>
+                                        <span>Feedback Mode:</span>
+                                        <select id="outline-feedback-mode">
+                                            <option value="ai">AI Analysis</option>
+                                            <option value="manual">Manual Feedback</option>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <span>Feedback Loops:</span>
+                                        <select id="outline-feedback-loops">
+                                            <option value="0">No feedback</option>
+                                            <option value="1">1 loop</option>
+                                            <option value="2">2 loops</option>
+                                            <option value="3">3 loops</option>
+                                            <option value="5">5 loops</option>
+                                        </select>
+                                    </label>
+                                    <div class="feedback-buttons">
+                                        <button class="btn btn-ghost btn-sm" onclick="runFeedbackLoop('outline')">
+                                            <span class="label">Run Feedback Loop</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="outline-manual-feedback" class="manual-feedback-section" style="display: none;">
+                                    <label for="outline-manual-input">Manual Feedback Instructions:</label>
+                                    <textarea id="outline-manual-input" placeholder="Describe what you'd like to improve or change about the book outline..." rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="prompt-editor">
+                                <h4>Prompt Customization</h4>
+                                <label for="outline-prompt">Book Outline Generation Prompt</label>
+                                <textarea id="outline-prompt" class="prompt-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="step-actions">
+                        <button class="btn btn-success btn-large" onclick="proceedToResearch()" id="outline-next" style="display: none;">
+                            <span class="label">Next: Research & Planning</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research & Planning Step -->
+            <div id="research" class="step">
+                <div class="step-header">
+                    <h2 class="step-title">Research & Content Planning</h2>
+                    <p class="step-description">Develop detailed content plans, research points, and chapter frameworks</p>
+                </div>
+
+                <div class="step-content">
+                    <!-- Primary Generation Actions -->
+                    <div class="primary-actions-section">
+                        <div class="main-generation-actions">
+                            <button class="btn btn-primary btn-large" onclick="generateResearchPlan()">
+                                <span class="label">Generate Research Plan</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="regenerateResearchPlan()">
+                                <span class="label">Regenerate</span>
+                            </button>
+                            <button class="btn btn-ghost" onclick="clearResearchContent()">
+                                <span class="label">Clear Content</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Content Field -->
+                    <div class="form-group">
+                        <label for="research-content">Research Plan & Content Structure</label>
+                        <div class="textarea-container">
+                            <textarea id="research-content" 
+                                    placeholder="Type or paste your detailed research and content plan here, or use AI generation above..." 
+                                    rows="25"
+                                    oninput="saveResearchContent()"></textarea>
+                            <div class="word-count" id="research-word-count">0 words</div>
+                        </div>
+                        <div class="form-hint">Enter your complete research plan including sources, examples, case studies, data points, and detailed chapter content plans.</div>
+                    </div>
+
+                    <!-- Advanced Settings & Quality Enhancement -->
+                    <div class="collapsible-section">
+                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
+                            <span class="toggle-icon">▼</span>
+                            <h3>Advanced Settings & Quality Enhancement</h3>
+                        </div>
+                        <div class="collapsible-content">
+                            <div class="feedback-controls">
+                                <h4>Quality Enhancement & Feedback</h4>
+                                <div class="feedback-options">
+                                    <label>
+                                        <span>Feedback Mode:</span>
+                                        <select id="research-feedback-mode">
+                                            <option value="ai">AI Analysis</option>
+                                            <option value="manual">Manual Feedback</option>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <span>Feedback Loops:</span>
+                                        <select id="research-feedback-loops">
+                                            <option value="0">No feedback</option>
+                                            <option value="1">1 loop</option>
+                                            <option value="2">2 loops</option>
+                                            <option value="3">3 loops</option>
+                                            <option value="5">5 loops</option>
+                                        </select>
+                                    </label>
+                                    <div class="feedback-buttons">
+                                        <button class="btn btn-ghost btn-sm" onclick="runFeedbackLoop('research')">
+                                            <span class="label">Run Feedback Loop</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="research-manual-feedback" class="manual-feedback-section" style="display: none;">
+                                    <label for="research-manual-input">Manual Feedback Instructions:</label>
+                                    <textarea id="research-manual-input" placeholder="Describe what you'd like to improve or change about the research planning..." rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="prompt-editor">
+                                <h4>Prompt Customization</h4>
+                                <label for="research-prompt">Research Planning Prompt</label>
+                                <textarea id="research-prompt" class="prompt-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="step-actions">
+                        <button class="btn btn-success btn-large" onclick="proceedToWriting()" id="research-next" style="display: none;">
+                            <span class="label">Next: Writing</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Writing Step -->
+            <div id="writing" class="step">
+                <div class="step-header">
+                    <h2 class="step-title">Writing Chapters</h2>
+                    <p class="step-description">Generate professional, informative content for each chapter</p>
+                </div>
+
+                <div class="step-content">
+                    <!-- Progress Section -->
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div id="writing-progress" class="progress-fill"></div>
+                        </div>
+                        <div id="writing-status">Ready to begin writing chapters...</div>
+                    </div>
+
+                    <!-- Writing Container -->
+                    <div id="chapters-container">
+                        <div class="writing-placeholder">
+                            <p>Setting up writing interface...</p>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Settings & Quality Enhancement -->
+                    <div class="collapsible-section">
+                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
+                            <span class="toggle-icon">▼</span>
+                            <h3>Advanced Settings & Quality Enhancement</h3>
+                        </div>
+                        <div class="collapsible-content">
+                            <div class="feedback-controls">
+                                <h4>Quality Enhancement & Feedback</h4>
+                                <div class="feedback-options">
+                                    <label>
+                                        <span>Feedback Mode:</span>
+                                        <select id="writing-feedback-mode">
+                                            <option value="ai">AI Analysis</option>
+                                            <option value="manual">Manual Feedback</option>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <span>Feedback Loops:</span>
+                                        <select id="writing-feedback-loops">
+                                            <option value="0">No feedback</option>
+                                            <option value="1">1 loop</option>
+                                            <option value="2">2 loops</option>
+                                            <option value="3">3 loops</option>
+                                            <option value="5">5 loops</option>
+                                        </select>
+                                    </label>
+                                    <div class="feedback-buttons">
+                                        <button class="btn btn-ghost btn-sm" onclick="runFeedbackLoop('writing')">
+                                            <span class="label">Run Feedback Loop</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="writing-manual-feedback" class="manual-feedback-section" style="display: none;">
+                                    <label for="writing-manual-input">Manual Feedback Instructions:</label>
+                                    <textarea id="writing-manual-input" placeholder="Describe what you'd like to improve or change about the writing..." rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="prompt-editor">
+                                <h4>Prompt Customization</h4>
+                                <label for="writing-prompt">Chapter Writing Prompt</label>
+                                <textarea id="writing-prompt" class="prompt-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="writing-footer">
+                        <button class="btn btn-success btn-large" onclick="proceedToExport()" style="display: none;" id="writing-next">
+                            <span class="label">Next: Export</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Step -->
+            <div id="export" class="step">
+                <div class="step-header">
+                    <h2 class="step-title">Export Your Book</h2>
+                    <p class="step-description">Download your completed non-fiction book in multiple professional formats</p>
+                </div>
+
+                <div class="step-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-words">0</div>
+                            <div class="stat-label">Total Words</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-chapters">0</div>
+                            <div class="stat-label">Chapters</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="avg-words">0</div>
+                            <div class="stat-label">Avg Words/Chapter</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="reading-time">0</div>
+                            <div class="stat-label">Reading Time (min)</div>
+                        </div>
+                    </div>
+
+                    <div class="export-grid">
+                        <div class="export-card">
+                            <div class="export-icon">📄</div>
+                            <h4>Text Format</h4>
+                            <p>Simple text file for basic reading</p>
+                            <button class="btn btn-primary" onclick="downloadBook('txt')">Download TXT</button>
+                        </div>
+                        <div class="export-card">
+                            <div class="export-icon">🌐</div>
+                            <h4>HTML Format</h4>
+                            <p>Web-ready format with styling</p>
+                            <button class="btn btn-primary" onclick="downloadBook('html')">Download HTML</button>
+                        </div>
+                        <div class="export-card">
+                            <div class="export-icon">📝</div>
+                            <h4>Markdown Format</h4>
+                            <p>Universal format for publishing platforms</p>
+                            <button class="btn btn-primary" onclick="downloadBook('md')">Download Markdown</button>
+                        </div>
+                        <div class="export-card">
+                            <div class="export-icon">📋</div>
+                            <h4>Copy to Clipboard</h4>
+                            <p>Quick copy for pasting elsewhere</p>
+                            <button class="btn btn-primary" onclick="copyToClipboard()">Copy Text</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Step -->
+            <div id="settings" class="step">
+                <div class="step-header">
+                    <h2 class="step-title">AI Settings & Configuration</h2>
+                    <p class="step-description">Configure your AI settings and customize all generation prompts</p>
+                </div>
+
+                <div class="step-content">
+                    <div class="settings-section">
+                        <h3>API Configuration</h3>
+                        
+                        <div class="api-provider-toggle">
+                            <div class="toggle-group">
+                                <button class="toggle-btn active" onclick="switchApiProvider('openrouter')" id="openrouter-btn">
+                                    OpenRouter
+                                </button>
+                                <button class="toggle-btn" onclick="switchApiProvider('openai')" id="openai-btn">
+                                    OpenAI
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group" id="openrouter-key-group">
+                                <label for="openrouter-api-key">OpenRouter API Key</label>
+                                <input type="password" id="openrouter-api-key" placeholder="Enter your OpenRouter API key..." onchange="saveSettings(); updateModelSelect()">
+                                <div class="form-hint">Get your API key from <a href="https://openrouter.ai" target="_blank">openrouter.ai</a></div>
+                            </div>
+
+                            <div class="form-group" id="openai-key-group" style="display: none;">
+                                <label for="openai-api-key">OpenAI API Key</label>
+                                <input type="password" id="openai-api-key" placeholder="Enter your OpenAI API key..." onchange="saveSettings(); updateModelSelect()">
+                                <div class="form-hint">Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="model-select">Default AI Model</label>
+                                <select id="model-select" onchange="updateModelInfo(); saveSettings()">
+                                    <!-- Models will be populated by JavaScript -->
+                                </select>
+                                <div id="model-cost-info" class="form-hint">Best quality models marked with stars | Budget models marked with dollar signs</div>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="temperature">Temperature (Creativity): <span id="temp-value">0.7</span></label>
+                                <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7" oninput="updateTempValue(); saveSettings()">
+                                <div class="form-hint">Higher = more creative, Lower = more focused</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="max-tokens">Max Tokens per Request</label>
+                                <input type="number" id="max-tokens" min="1000" max="1000000" value="50000" onchange="saveSettings()">
+                                <div class="form-hint">Maximum length of each AI response</div>
+                            </div>
+                        </div>
+
+                        <div class="settings-actions">
+                            <button class="btn btn-primary" onclick="testApiConnection()">
+                                <span class="label">Test Connection</span>
+                            </button>
+                            <button class="btn btn-ghost" onclick="exportSettings()">
+                                <span class="label">Export Settings</span>
+                            </button>
+                            <button class="btn btn-ghost" onclick="importSettings()">
+                                <span class="label">Import Settings</span>
+                            </button>
+                        </div>
+
+                        <div id="api-status"></div>
+                    </div>
+
+                    <!-- Advanced Model Selection & Custom Prompts -->
+                    <div class="collapsible-section advanced-settings-section">
+                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
+                            <span class="toggle-icon">▼</span>
+                            <h3>Advanced Model Selection & Custom Prompts</h3>
+                        </div>
+                        <div class="collapsible-content">
+                            <div class="advanced-models-container">
+                                <div class="advanced-models-toggle">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="enable-advanced-models" onchange="saveAdvancedModelSettings(); updateAdvancedModelsVisualState()">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <div class="toggle-info">
+                                        <span class="toggle-label">Enable Advanced Models</span>
+                                        <p class="form-hint">Customize which AI model to use for each generation step. Different models excel at different tasks.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="advanced-models-grid">
+                                    <div class="model-setting">
+                                        <label for="advanced-model-outline">Book Outline Generation</label>
+                                        <select id="advanced-model-outline" onchange="saveAdvancedModelSettings()">
+                                            <option value="">Use Default Model</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="model-setting">
+                                        <label for="advanced-model-research">Research Planning</label>
+                                        <select id="advanced-model-research" onchange="saveAdvancedModelSettings()">
+                                            <option value="">Use Default Model</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="model-setting">
+                                        <label for="advanced-model-writing">Chapter Writing</label>
+                                        <select id="advanced-model-writing" onchange="saveAdvancedModelSettings()">
+                                            <option value="">Use Default Model</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="model-setting">
+                                        <label for="advanced-model-feedback">Feedback & Analysis</label>
+                                        <select id="advanced-model-feedback" onchange="saveAdvancedModelSettings()">
+                                            <option value="">Use Default Model</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="model-setting">
+                                        <label for="advanced-model-randomIdea">Random Ideas</label>
+                                        <select id="advanced-model-randomIdea" onchange="saveAdvancedModelSettings()">
+                                            <option value="">Use Default Model</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="model-setting">
+                                        <label for="advanced-model-bookTitle">Book Title & Description</label>
+                                        <select id="advanced-model-bookTitle" onchange="saveAdvancedModelSettings()">
+                                            <option value="">Use Default Model</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="advanced-models-actions">
+                                    <button class="btn btn-ghost btn-sm" onclick="resetAdvancedModelSettings()">
+                                        <span class="label">Reset All to Default</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="custom-prompts-container">
+                                <h4>Custom Prompts</h4>
+                                <p class="form-hint">Customize the AI generation prompts for each step. Changes are saved automatically.</p>
+                                
+                                <div class="prompt-editors">
+                                    <div class="prompt-group">
+                                        <label for="settings-outline-prompt">Book Outline Generation Prompt</label>
+                                        <textarea id="settings-outline-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('outline')"></textarea>
+                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('outline')">Reset to Default</button>
+                                    </div>
+
+                                    <div class="prompt-group">
+                                        <label for="settings-research-prompt">Research Planning Prompt</label>
+                                        <textarea id="settings-research-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('research')"></textarea>
+                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('research')">Reset to Default</button>
+                                    </div>
+
+                                    <div class="prompt-group">
+                                        <label for="settings-writing-prompt">Chapter Writing Prompt</label>
+                                        <textarea id="settings-writing-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('writing')"></textarea>
+                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('writing')">Reset to Default</button>
+                                    </div>
+
+                                    <div class="prompt-group">
+                                        <label for="settings-analysis-prompt">Feedback Analysis Prompt</label>
+                                        <textarea id="settings-analysis-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('analysis')"></textarea>
+                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('analysis')">Reset to Default</button>
+                                    </div>
+
+                                    <div class="prompt-group">
+                                        <label for="settings-randomidea-prompt">Random Idea Generation Prompt</label>
+                                        <textarea id="settings-randomidea-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('randomIdea')"></textarea>
+                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('randomIdea')">Reset to Default</button>
+                                    </div>
+
+                                    <div class="prompt-group">
+                                        <label for="settings-booktitle-prompt">Book Title & Description Generation Prompt</label>
+                                        <textarea id="settings-booktitle-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('bookTitle')"></textarea>
+                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('bookTitle')">Reset to Default</button>
+                                    </div>
+                                </div>
+
+                                <div class="custom-prompts-actions">
+                                    <button class="btn btn-ghost" onclick="resetAllCustomPrompts()">
+                                        <span class="label">Reset All Prompts</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutorial Step -->
+            <div id="tutorial" class="step">
+                <div class="step-header">
+                    <h2 class="step-title">Tutorial & Guide</h2>
+                    <p class="step-description">Complete guide to using BookForge AI for non-fiction writing</p>
+                </div>
+
+                <div class="step-content">
+                    <div class="tutorial-section">
+                        <h3>Getting Started</h3>
+
+                        <div class="tutorial-card">
+                            <h4>What is BookForge AI?</h4>
+                            <p>BookForge AI is a specialized platform for creating professional non-fiction books:</p>
+                            <ul>
+                                <li><strong>Expert Knowledge:</strong> Generate authoritative content on any topic</li>
+                                <li><strong>Research-Based:</strong> AI creates comprehensive research plans and content</li>
+                                <li><strong>Multiple Categories:</strong> Business, self-help, technology, health, and more</li>
+                                <li><strong>Professional Quality:</strong> Publication-ready output for experts and beginners</li>
+                            </ul>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <h4>AI Settings Configuration</h4>
+                            <p>Set up your AI connection:</p>
+                            <ul>
+                                <li><strong>API Providers:</strong> Choose OpenRouter or OpenAI</li>
+                                <li><strong>Model Selection:</strong> Different models for different needs</li>
+                                <li><strong>Advanced Models:</strong> Customize models per generation step</li>
+                                <li><strong>Temperature:</strong> Control creativity vs factual precision (0-1)</li>
+                                <li><strong>Custom Prompts:</strong> Modify generation behavior for your expertise</li>
+                            </ul>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <h4>Book Creation Process</h4>
+                            <p>Follow the structured approach for non-fiction:</p>
+                            <ul>
+                                <li><strong>Book Setup:</strong> Define category, audience, topic, and approach</li>
+                                <li><strong>Book Outline:</strong> Create logical structure and chapter framework</li>
+                                <li><strong>Research & Planning:</strong> Develop detailed content plans and sources</li>
+                                <li><strong>Writing:</strong> Generate informative, authoritative content</li>
+                                <li><strong>Export:</strong> Download in multiple professional formats</li>
+                            </ul>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <h4>Quality Enhancement</h4>
+                            <p>Improve your content with feedback loops:</p>
+                            <ul>
+                                <li><strong>AI Analysis:</strong> Automated quality assessment for clarity and authority</li>
+                                <li><strong>Manual Feedback:</strong> Provide specific improvement instructions</li>
+                                <li><strong>Multiple Iterations:</strong> Run 1-5 improvement cycles</li>
+                                <li><strong>Step-by-Step:</strong> Enhance outline, research, and writing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-section">
+                        <h3>Non-Fiction Specific Features</h3>
+
+                        <div class="tutorial-card">
+                            <h4>Book Categories</h4>
+                            <p>Optimized for different non-fiction types:</p>
+                            <ul>
+                                <li><strong>Business & Entrepreneurship:</strong> Strategy, leadership, startups</li>
+                                <li><strong>Self-Help & Personal Development:</strong> Productivity, habits, mindset</li>
+                                <li><strong>Health & Wellness:</strong> Fitness, nutrition, mental health</li>
+                                <li><strong>Technology & Programming:</strong> Coding, software, tech trends</li>
+                                <li><strong>Science & Education:</strong> Research, academic, educational content</li>
+                            </ul>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <h4>Research & Planning</h4>
+                            <p>AI-powered research assistance:</p>
+                            <ul>
+                                <li>Comprehensive content planning for each chapter</li>
+                                <li>Research points and source recommendations</li>
+                                <li>Case study and example suggestions</li>
+                                <li>Logical flow and knowledge progression</li>
+                                <li>Expert-level content structure</li>
+                            </ul>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <h4>Writing Quality</h4>
+                            <p>Professional non-fiction standards:</p>
+                            <ul>
+                                <li>Clear, authoritative writing style</li>
+                                <li>Evidence-based content and claims</li>
+                                <li>Practical examples and actionable advice</li>
+                                <li>Appropriate complexity for target audience</li>
+                                <li>Consistent tone and expertise level</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-section">
+                        <h3>Tips & Best Practices</h3>
+
+                        <div class="tutorial-card">
+                            <h4>Content Quality Tips</h4>
+                            <ul>
+                                <li>Use feedback loops for better authority and clarity</li>
+                                <li>Review and fact-check AI-generated content</li>
+                                <li>Maintain consistent expertise level throughout</li>
+                                <li>Follow category-specific best practices</li>
+                                <li>Export regularly to backup your work</li>
+                            </ul>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <h4>Audience Targeting</h4>
+                            <ul>
+                                <li><strong>Beginners:</strong> Step-by-step, simple language, lots of examples</li>
+                                <li><strong>Intermediate:</strong> Practical application, some technical depth</li>
+                                <li><strong>Advanced:</strong> Detailed analysis, expert-level insights</li>
+                                <li><strong>Professionals:</strong> Business-focused, ROI-driven content</li>
+                            </ul>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <h4>Cost Management</h4>
+                            <ul>
+                                <li>Use cost estimation before generation</li>
+                                <li>Budget models for drafts, premium for final</li>
+                                <li>Optimize feedback loops usage</li>
+                                <li>Generate chapters individually to control costs</li>
+                                <li>Use advanced model selection strategically</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Generation Progress Indicator -->
+    <div class="generation-indicator" id="generation-indicator">
+        <div class="generation-animation"></div>
+        <h3 id="generation-title">AI Generation in Progress</h3>
+        <p id="generation-description">Please wait while the AI processes your request...</p>
+    </div>
+
+    <!-- Auto-save Indicator -->
+    <div id="auto-save-indicator" class="auto-save-indicator">Auto-saved</div>
+
+    <!-- Custom Alert Modal -->
+    <div id="custom-alert-modal" class="modal custom-alert-modal">
+        <div class="modal-content alert-content">
+            <div class="alert-header">
+                <h3 id="alert-title">Notification</h3>
+            </div>
+            <div class="alert-body">
+                <div id="alert-message">Alert message will appear here</div>
+            </div>
+            <div class="alert-footer">
+                <button class="btn btn-primary" id="alert-ok-btn" onclick="closeCustomAlert()">OK</button>
+                <button class="btn btn-ghost" id="alert-cancel-btn" onclick="closeCustomAlert(false)" style="display: none;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Expand Modal -->
+    <div id="expand-modal" class="expand-modal">
+        <div class="expand-header">
+            <div class="expand-title">
+                <h3 id="expand-chapter-title">Chapter 1 - Expanded View</h3>
+                <div class="expand-info">
+                    <span id="expand-word-count">0 words</span>
+                    <span id="expand-reading-time">0 min read</span>
+                </div>
+            </div>
+            <div class="expand-controls">
+                <button class="btn btn-ghost btn-sm" onclick="toggleExpandedReadMode()">
+                    <span id="read-mode-label">Read Mode</span>
+                </button>
+                <button class="btn btn-success btn-sm" onclick="saveExpandedChapter()">
+                    <span class="label">Save Changes</span>
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="closeExpandModal()">
+                    <span class="label">Close</span>
+                </button>
+            </div>
+        </div>
+        <div class="expand-content">
+            <div class="expand-editor" id="expand-editor">
+                <textarea id="expand-textarea" placeholder="Chapter content..." oninput="updateExpandedWordCount()"></textarea>
+            </div>
+            <div class="expand-reader" id="expand-reader" style="display: none;">
+                <div id="expand-reader-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- One-Click Generation Modal -->
+    <div id="one-click-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>1-Click Generation Configuration</h3>
+                <button class="btn btn-ghost btn-sm" onclick="closeOneClickModal()">
+                    <span class="label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Configure feedback loops for each generation step:</p>
+                
+                <div class="one-click-config">
+                    <div class="config-row">
+                        <label>Book Outline Feedback Loops:</label>
+                        <select id="one-click-outline-loops">
+                            <option value="0">No feedback</option>
+                            <option value="1">1 loop</option>
+                            <option value="2">2 loops</option>
+                            <option value="3">3 loops</option>
+                        </select>
+                    </div>
+                    <div class="config-row">
+                        <label>Research Planning Feedback Loops:</label>
+                        <select id="one-click-research-loops">
+                            <option value="0">No feedback</option>
+                            <option value="1">1 loop</option>
+                            <option value="2">2 loops</option>
+                            <option value="3">3 loops</option>
+                        </select>
+                    </div>
+                    <div class="config-row">
+                        <label>Writing Feedback Loops:</label>
+                        <select id="one-click-writing-loops">
+                            <option value="0">No feedback</option>
+                            <option value="1">1 loop</option>
+                            <option value="2">2 loops</option>
+                            <option value="3">3 loops</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeOneClickModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="startOneClickProcess()">
+                    <span class="label">Start Generation</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Management Modal -->
+    <div id="project-management-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Manage Projects</h3>
+                <button class="btn btn-ghost btn-sm" onclick="closeProjectManagementModal()">
+                    <span class="label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="project-management-content">
+                    <div class="project-stats">
+                        <p>Saved Projects: <span id="project-count">0</span>/10</p>
+                        <div class="progress-bar">
+                            <div id="project-count-progress" class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="project-list" class="project-list">
+                        <!-- Projects will be populated here -->
+                    </div>
+                    
+                    <div class="project-management-actions">
+                        <button class="btn btn-ghost btn-sm" onclick="exportAllProjects()">
+                            <span class="label">Export All</span>
+                        </button>
+                        <button class="btn btn-ghost btn-sm" onclick="importProjects()">
+                            <span class="label">Import Projects</span>
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="clearAllProjects()">
+                            <span class="label">Clear All</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Send Feedback</h3>
+                <button class="btn btn-ghost btn-sm" onclick="closeFeedbackModal()">
+                    <span class="label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="feedback-type">Feedback Type</label>
+                    <select id="feedback-type">
+                        <option value="bug">Bug Report</option>
+                        <option value="feature">Feature Request</option>
+                        <option value="improvement">Improvement Suggestion</option>
+                        <option value="question">Question</option>
+                        <option value="praise">Compliment</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-message">Your Feedback</label>
+                    <textarea id="feedback-message" rows="6" placeholder="Please describe your feedback in detail..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-email">Email (optional)</label>
+                    <input type="email" id="feedback-email" placeholder="your@email.com">
+                    <div class="form-hint">Leave your email if you'd like a response</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeFeedbackModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitFeedback()">
+                    <span class="label">Send Feedback</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donation Modal -->
+    <div id="donation-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Support BookForge AI</h3>
+                <button class="btn btn-ghost btn-sm" onclick="closeDonationModal()">
+                    <span class="label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="donation-content">
+                    <p><strong>BookForge AI is completely free to use!</strong></p>
+                    <p>If you find this tool helpful and would like to support its development, consider buying me a coffee. Your support helps me:</p>
+                    <ul>
+                        <li>Keep the service free for everyone</li>
+                        <li>Add new features and improvements</li>
+                        <li>Maintain and improve the platform</li>
+                        <li>Create better AI writing tools</li>
+                    </ul>
+                    
+                    <div class="donation-options">
+                        <h4>Choose an amount:</h4>
+                        <div class="donation-buttons">
+                            <button class="btn btn-ghost donation-amount selected" onclick="setDonationAmount(5)">
+                                <span class="label">$5 Coffee</span>
+                            </button>
+                            <button class="btn btn-ghost donation-amount" onclick="setDonationAmount(10)">
+                                <span class="label">$10 Meal</span>
+                            </button>
+                            <button class="btn btn-ghost donation-amount" onclick="setDonationAmount(25)">
+                                <span class="label">$25 Generous</span>
+                            </button>
+                        </div>
+                        
+                        <div class="custom-amount">
+                            <label>Or enter custom amount (USD):</label>
+                            <input type="number" id="custom-donation-amount" min="1" placeholder="Enter amount">
+                        </div>
+                    </div>
+                    
+                    <p class="donation-note"><em>Every contribution, no matter how small, means the world to us!</em></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeDonationModal()">Maybe Later</button>
+                <button class="btn btn-primary" onclick="proceedToDonate()" id="donate-btn">
+                    <span class="label">Donate $5</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text" id="loading-text">Processing...</div>
+            <button class="btn btn-danger btn-sm" onclick="cancelOneClickGeneration()" id="cancel-btn" style="display: none;">
+                <span class="label">Cancel</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hidden file inputs -->
+    <input type="file" id="projects-import-file" style="display: none;" accept=".json" onchange="handleProjectsImport(event)">
+    <input type="file" id="settings-import-file" style="display: none;" accept=".json" onchange="handleSettingsImport(event)">
+
+    <script src="script.js"></script>
+</body>
+</html>
