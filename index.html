@@ -3,140 +3,864 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookForge AI - Create Professional Non-Fiction Books with AI | Expert Knowledge Creator</title>
-    <meta name="description" content="Generate complete professional non-fiction books with AI. Create business guides, self-help books, educational content, and expert knowledge books. Try BookForge AI free today!">
-    <meta name="keywords" content="AI book generator, non-fiction writing AI, business book creator, self-help generator, AI author, educational content generator, book forge, AI writing tool, automated book creation">
-    <meta name="author" content="BookForge AI">
+    <title>BookForge - Professional Non-Fiction Book Generator</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Generate professional, research-backed non-fiction books with AI. Create authoritative guides, business books, and expert content with evidence-based methodologies.">
+    <meta name="keywords" content="AI book generator, non-fiction writing, business books, professional content, research-backed writing">
+    <meta name="author" content="BookForge">
     <meta name="robots" content="index, follow">
-
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="BookForge AI - Create Professional Non-Fiction Books with AI">
-    <meta property="og:description" content="Generate complete professional non-fiction books with AI. Create business guides, self-help books, and educational content.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="BookForge - Professional Non-Fiction Book Generator">
+    <meta property="og:description" content="Generate professional, research-backed non-fiction books with AI.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bookforge.ink">
-    <meta property="og:image" content="https://bookforge.ink/og-image.jpg">
-    <meta property="og:site_name" content="BookForge AI">
+    <meta property="og:url" content="https://bookforge.ai">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <style>
+    /* Professional Design System */
+    :root {
+        --color-primary: #1E40AF;
+        --color-primary-hover: #1D4ED8;
+        --color-success: #059669;
+        --color-danger: #DC2626;
+        --color-warning: #D97706;
+        --color-secondary: #64748B;
+        
+        --bg-primary: #FFFFFF;
+        --bg-secondary: #F8FAFC;
+        --bg-tertiary: #F1F5F9;
+        --bg-quaternary: #E2E8F0;
+        
+        --text-primary: #0F172A;
+        --text-secondary: #334155;
+        --text-tertiary: #64748B;
+        --text-quaternary: #94A3B8;
+        
+        --border-primary: #CBD5E1;
+        --border-secondary: #E2E8F0;
+        --separator: #F1F5F9;
+        
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        
+        --spacing-xs: 0.25rem;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --spacing-2xl: 3rem;
+        
+        --radius-sm: 0.375rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+        
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 2rem;
+        
+        --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BookForge AI - Create Professional Non-Fiction Books with AI">
-    <meta name="twitter:description" content="Generate complete professional non-fiction books with AI for business, self-help, education and more.">
-    <meta name="twitter:image" content="https://bookforge.ink/twitter-image.jpg">
-    <meta name="twitter:site" content="@bookforge">
+    [data-theme="dark"] {
+        --color-primary: #3B82F6;
+        --color-primary-hover: #60A5FA;
+        --bg-primary: #1E293B;
+        --bg-secondary: #0F172A;
+        --bg-tertiary: #334155;
+        --bg-quaternary: #475569;
+        --text-primary: #F8FAFC;
+        --text-secondary: #E2E8F0;
+        --text-tertiary: #CBD5E1;
+        --text-quaternary: #94A3B8;
+        --border-primary: #475569;
+        --border-secondary: #64748B;
+        --separator: #334155;
+    }
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://bookforge.ink">
+    /* Reset & Base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "BookForge AI",
-        "description": "Fully automated AI-powered non-fiction book generator for creating professional business guides, self-help books, and educational content",
-        "url": "https://bookforge.ink",
-        "applicationCategory": "Writing Tool",
-        "operatingSystem": "Web Browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.5;
+        overflow-x: hidden;
+    }
+
+    .app-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--separator);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-lg) var(--spacing-xl);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .app-title {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .app-subtitle {
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .header-actions {
+        display: flex;
+        gap: var(--spacing-sm);
+        align-items: center;
+    }
+
+    .theme-selector {
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: 1px solid var(--border-secondary);
+        border-radius: var(--radius-md);
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-size: var(--font-size-sm);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .theme-selector:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+    }
+
+    /* Navigation */
+    .navigation {
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--separator);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+    }
+
+    .nav-progress {
+        height: 2px;
+        background: var(--bg-quaternary);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+        width: 0%;
+        transition: width 0.3s ease;
+    }
+
+    .nav-items {
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-lg) var(--spacing-md);
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        min-width: 120px;
+        transition: var(--transition);
+        color: var(--text-tertiary);
+        text-decoration: none;
+    }
+
+    .nav-item:hover {
+        color: var(--text-primary);
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-md);
+    }
+
+    .nav-item.active {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+    .nav-item.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 2px;
+        background: var(--color-primary);
+        border-radius: var(--radius-sm);
+    }
+
+    .nav-icon {
+        font-size: var(--font-size-lg);
+    }
+
+    .nav-label {
+        font-size: var(--font-size-sm);
+        text-align: center;
+    }
+
+    /* Main Content */
+    .main-content {
+        flex: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-2xl) var(--spacing-xl);
+        width: 100%;
+    }
+
+    .step {
+        display: none;
+        animation: fadeInUp 0.4s ease-out;
+    }
+
+    .step.active {
+        display: block;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
-    </script>
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    .step-header {
+        text-align: center;
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .step-title {
+        font-size: var(--font-size-3xl);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .step-description {
+        font-size: var(--font-size-lg);
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .step-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Form Elements */
+    .form-group {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    label {
+        display: block;
+        margin-bottom: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: var(--spacing-md);
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
+        border-radius: var(--radius-md);
+        color: var(--text-primary);
+        font-size: var(--font-size-base);
+        font-family: inherit;
+        transition: var(--transition);
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        line-height: 1.6;
+    }
+
+    .textarea-container {
+        position: relative;
+    }
+
+    .word-count {
+        position: absolute;
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+        font-size: var(--font-size-xs);
+        color: var(--text-quaternary);
+        background: var(--bg-primary);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: var(--radius-sm);
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        border: none;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        background: var(--color-primary);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: var(--color-primary-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        border: 1px solid var(--border-secondary);
+    }
+
+    .btn-secondary:hover {
+        background: var(--bg-quaternary);
+        transform: translateY(-1px);
+    }
+
+    .btn-danger {
+        background: var(--color-danger);
+        color: white;
+    }
+
+    .btn-danger:hover {
+        background: #B91C1C;
+        transform: translateY(-1px);
+    }
+
+    .btn-sm {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-xs);
+    }
+
+    .btn-lg {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: var(--font-size-base);
+    }
+
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none !important;
+    }
+
+    /* Step Actions */
+    .step-actions {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-2xl);
+        flex-wrap: wrap;
+    }
+
+    /* Project Controls */
+    .project-bar {
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--separator);
+        padding: var(--spacing-md) 0;
+    }
+
+    .project-controls {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-xl);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .project-selector {
+        flex: 1;
+        max-width: 300px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
+        border-radius: var(--radius-md);
+        color: var(--text-primary);
+        font-size: var(--font-size-sm);
+    }
+
+    .project-actions {
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    /* Content Areas */
+    .content-area {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-xl);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .content-area h3 {
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    /* Generation Controls */
+    .generation-controls {
+        background: var(--bg-secondary);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .controls-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Chapter Management */
+    .chapter-item {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+        transition: var(--transition);
+    }
+
+    .chapter-item:hover {
+        border-color: var(--border-primary);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .chapter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--spacing-md);
+        position: relative;
+    }
+
+    .chapter-info {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .chapter-title {
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .word-count-display {
+        font-size: var(--font-size-sm);
+        color: var(--text-tertiary);
+        background: var(--bg-secondary);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: var(--radius-sm);
+    }
+
+    .chapter-actions {
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    .collapse-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+        border: none;
+        color: var(--text-tertiary);
+        cursor: pointer;
+        padding: var(--spacing-xs);
+        border-radius: var(--radius-sm);
+        transition: var(--transition);
+    }
+
+    .collapse-btn:hover {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+
+    .chapter-content {
+        transition: var(--transition);
+    }
+
+    .chapter-content.collapsed {
+        display: none;
+    }
+
+    /* Modals */
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: var(--spacing-lg);
+    }
+
+    .modal.active {
+        display: flex;
+    }
+
+    .modal-content {
+        background: var(--bg-primary);
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-2xl);
+        max-width: 500px;
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .modal-title {
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .modal-actions {
+        display: flex;
+        gap: var(--spacing-md);
+        justify-content: flex-end;
+        margin-top: var(--spacing-lg);
+    }
+
+    /* Loading States */
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    }
+
+    .loading-overlay.active {
+        display: flex;
+    }
+
+    .loading-content {
+        background: var(--bg-primary);
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-xl);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid var(--bg-quaternary);
+        border-top: 4px solid var(--color-primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto var(--spacing-lg);
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .loading-description {
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .stat-card {
+        background: var(--bg-secondary);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .stat-label {
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+        }
+
+        .project-controls {
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .project-selector {
+            max-width: none;
+        }
+
+        .nav-items {
+            padding: 0 var(--spacing-md);
+            overflow-x: auto;
+        }
+
+        .nav-item {
+            min-width: 100px;
+            padding: var(--spacing-md) var(--spacing-sm);
+        }
+
+        .main-content {
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .step-actions {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .controls-row {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .chapter-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+        }
+
+        .modal-content {
+            margin: var(--spacing-md);
+            padding: var(--spacing-lg);
+        }
+    }
+
+    /* Utility Classes */
+    .hidden { display: none !important; }
+    .text-center { text-align: center; }
+    .text-muted { color: var(--text-tertiary); }
+    .font-mono { font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace; }
+    .mt-lg { margin-top: var(--spacing-lg); }
+    .mb-lg { margin-bottom: var(--spacing-lg); }
+    .p-lg { padding: var(--spacing-lg); }
+    </style>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="favicon.ico" sizes="any">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJ1NKGG33E"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XJ1NKGG33E');
+    </script>
+
 </head>
-<body data-theme="light">
+<body data-theme="professional">
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="header-content">
                 <div class="header-left">
-                    <h1 class="app-title">BookForge AI</h1>
-                    <p class="app-subtitle">Forge expert knowledge books</p>
+                    <h1 class="app-title">BookForge</h1>
+                    <p class="app-subtitle">Professional Non-Fiction Book Generator</p>
                 </div>
-                <div class="header-right">
-                    <div class="theme-selector-container">
-                        <select class="theme-selector" id="theme-select" onchange="changeTheme()">
-                            <option value="light">Light</option>
-                            <option value="dark">Dark</option>
-                            <option value="fun">Color</option>
-                        </select>
-                    </div>
-                    <button class="header-btn" onclick="estimateCosts()">
-                        <span class="label">Cost Estimate</span>
+                <div class="header-actions">
+                    <select id="theme-select" class="theme-selector" onchange="changeTheme()">
+                        <option value="professional">Professional</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                    <button class="btn btn-secondary btn-sm" onclick="showSettings()">
+                        <i class="fas fa-cog"></i>
+                        Settings
                     </button>
-                    <button class="header-btn" onclick="showFeedbackForm()">
-                        <span class="label">Feedback</span>
-                    </button>
-                    <button class="header-btn" onclick="showDonationModal()">
-                        <span class="label">Donate</span>
+                    <button class="btn btn-secondary btn-sm" onclick="showHelp()">
+                        <i class="fas fa-question-circle"></i>
+                        Help
                     </button>
                 </div>
             </div>
         </header>
 
-        <!-- Project Management -->
+        <!-- Project Bar -->
         <div class="project-bar">
             <div class="project-controls">
-                <div class="project-select-wrapper">
-                    <div class="project-menu">
-                        <select id="project-select" class="project-selector" onchange="handleProjectAction(this.value)">
-                            <option value="current">Current Project</option>
-                        </select>
-                    </div>
-                </div>
+                <select id="project-select" class="project-selector" onchange="switchProject()">
+                    <option value="current">Current Project</option>
+                </select>
                 <div class="project-actions">
-                    <button class="btn btn-ghost btn-sm" onclick="newProject()">
-                        <span class="label">New</span>
+                    <button class="btn btn-secondary btn-sm" onclick="newProject()">
+                        <i class="fas fa-plus"></i>
+                        New
                     </button>
-                    <button class="btn btn-ghost btn-sm" onclick="saveProject()">
-                        <span class="label">Save</span>
+                    <button class="btn btn-secondary btn-sm" onclick="saveProject()">
+                        <i class="fas fa-save"></i>
+                        Save
                     </button>
-                    <button class="btn btn-ghost btn-sm" onclick="manageProjects()">
-                        <span class="label">Manage</span>
-                    </button>
-                    <button class="btn btn-ghost btn-sm" id="delete-project-btn" onclick="deleteCurrentProject()" style="display: none;">
-                        <span class="label">Delete</span>
+                    <button class="btn btn-secondary btn-sm" onclick="showProjectManager()">
+                        <i class="fas fa-folder-open"></i>
+                        Manage
                     </button>
                 </div>
-                <input type="file" id="project-file" style="display: none;" accept=".json" onchange="importProject(event)">
             </div>
         </div>
 
         <!-- Navigation -->
         <nav class="navigation">
-            <div class="nav-progress">
-                <div class="progress-line" id="nav-progress-line"></div>
-            </div>
-            <div class="nav-items">
-                <button class="nav-item" onclick="showStep('settings')" data-step="settings">
-                    <span class="nav-label">Settings</span>
-                </button>
-                <button class="nav-item active" onclick="showStep('setup')" data-step="setup">
-                    <span class="nav-label">Book Setup</span>
-                </button>
-                <button class="nav-item" onclick="showStep('outline')" data-step="outline">
-                    <span class="nav-label">Book Outline</span>
-                </button>
-                <button class="nav-item" onclick="showStep('research')" data-step="research">
-                    <span class="nav-label">Research & Planning</span>
-                </button>
-                <button class="nav-item" onclick="showStep('writing')" data-step="writing">
-                    <span class="nav-label">Writing</span>
-                </button>
-                <button class="nav-item" onclick="showStep('export')" data-step="export">
-                    <span class="nav-label">Export</span>
-                </button>
-                <button class="nav-item" onclick="showStep('tutorial')" data-step="tutorial">
-                    <span class="nav-label">Tutorial</span>
-                </button>
+            <div class="nav-container">
+                <div class="nav-progress">
+                    <div class="progress-fill" id="nav-progress"></div>
+                </div>
+                <div class="nav-items">
+                    <button class="nav-item active" onclick="showStep('setup')" id="nav-setup">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <span class="nav-label">Setup</span>
+                    </button>
+                    <button class="nav-item" onclick="showStep('research')" id="nav-research">
+                        <i class="nav-icon fas fa-search"></i>
+                        <span class="nav-label">Research</span>
+                    </button>
+                    <button class="nav-item" onclick="showStep('chapters')" id="nav-chapters">
+                        <i class="nav-icon fas fa-list"></i>
+                        <span class="nav-label">Structure</span>
+                    </button>
+                    <button class="nav-item" onclick="showStep('writing')" id="nav-writing">
+                        <i class="nav-icon fas fa-pen"></i>
+                        <span class="nav-label">Writing</span>
+                    </button>
+                    <button class="nav-item" onclick="showStep('export')" id="nav-export">
+                        <i class="nav-icon fas fa-download"></i>
+                        <span class="nav-label">Export</span>
+                    </button>
+                </div>
             </div>
         </nav>
 
@@ -145,289 +869,155 @@
             <!-- Setup Step -->
             <div id="setup" class="step active">
                 <div class="step-header">
-                    <h2 class="step-title">Book Setup</h2>
-                    <p class="step-description">Define your non-fiction book's foundation and target knowledge goals</p>
+                    <h2 class="step-title">Book Configuration</h2>
+                    <p class="step-description">Define your non-fiction book's parameters and target specifications</p>
                 </div>
-
                 <div class="step-content">
-                    <!-- Book Configuration -->
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="category">Book Category</label>
-                            <select id="category" onchange="updateCategoryRequirements()">
-                                <option value="">Select a category...</option>
-                                <option value="business">Business & Entrepreneurship</option>
-                                <option value="self-help">Self-Help & Personal Development</option>
-                                <option value="health">Health & Wellness</option>
-                                <option value="technology">Technology & Programming</option>
-                                <option value="history">History & Biography</option>
-                                <option value="science">Science & Education</option>
-                                <option value="finance">Finance & Investment</option>
-                                <option value="travel">Travel & Lifestyle</option>
-                                <option value="cooking">Cooking & Food</option>
-                                <option value="arts">Arts & Crafts</option>
-                                <option value="politics">Politics & Social Issues</option>
-                                <option value="religion">Religion & Spirituality</option>
+                            <label for="category">Category</label>
+                            <select id="category" onchange="updateSetupFields()">
+                                <option value="">Select Category</option>
+                                <option value="business-entrepreneurship">Business & Entrepreneurship</option>
+                                <option value="self-help-personal-development">Self-Help & Personal Development</option>
+                                <option value="health-wellness">Health & Wellness</option>
+                                <option value="technology-programming">Technology & Programming</option>
+                                <option value="science-education">Science & Education</option>
+                                <option value="finance-investment">Finance & Investment</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label for="target-audience">Target Audience</label>
-                            <select id="target-audience" onchange="updateAudienceRequirements()">
-                                <option value="">Select target audience...</option>
-                                <option value="beginners">Beginners/Novices</option>
-                                <option value="intermediate">Intermediate Practitioners</option>
-                                <option value="advanced">Advanced/Experts</option>
-                                <option value="professionals">Business Professionals</option>
-                                <option value="students">Students & Academics</option>
-                                <option value="general">General Public</option>
+                            <select id="target-audience" onchange="updateSetupFields()">
+                                <option value="">Select Audience</option>
+                                <option value="professionals">Professionals</option>
+                                <option value="entrepreneurs">Entrepreneurs</option>
+                                <option value="students">Students</option>
+                                <option value="general-public">General Public</option>
+                                <option value="experts">Industry Experts</option>
                             </select>
                         </div>
                     </div>
-
-                    <div id="category-requirements" class="info-card" style="display: none;">
-                        <h4>Category-Specific Guidelines</h4>
-                        <div id="category-requirements-content"></div>
-                    </div>
-
+                    
                     <div class="form-group">
-                        <label for="topic">Main Topic & Purpose</label>
-                        <div class="textarea-container">
-                            <textarea id="topic" placeholder="What is your book about? What problem does it solve or knowledge does it share? What will readers learn or achieve?" oninput="autoSave(); updateWordCount();"></textarea>
-                            <div class="word-count" id="topic-word-count">0 words</div>
-                        </div>
+                        <label for="topic">Book Topic</label>
+                        <textarea id="topic" placeholder="Describe your book's main topic and focus area..." rows="3" oninput="updateSetupFields()"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="approach">Writing Approach & Tone</label>
-                        <div class="textarea-container">
-                            <textarea id="approach" placeholder="Describe your writing style and approach (e.g., practical, academic, conversational, step-by-step, research-heavy, example-driven...)" oninput="autoSave(); updateWordCount();"></textarea>
-                            <div class="word-count" id="approach-word-count">0 words</div>
-                        </div>
+                        <label for="approach">Approach & Methodology</label>
+                        <textarea id="approach" placeholder="Describe your writing approach and methodology..." rows="2" oninput="updateSetupFields()"></textarea>
                     </div>
-
+                    
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="num-chapters">Number of Chapters</label>
-                            <input type="number" id="num-chapters" min="5" max="50" value="15" oninput="updateChapterEstimate()">
-                            <div class="form-hint" id="chapter-estimate">Estimated book length: ~30,000 words</div>
+                            <input type="number" id="num-chapters" min="5" max="30" value="12" onchange="updateSetupFields()">
                         </div>
-
                         <div class="form-group">
-                            <label for="target-word-count">Target Words per Chapter</label>
-                            <input type="number" id="target-word-count" min="1000" max="8000" value="2000">
-                            <div class="form-hint">Recommended: 1500-3000 for most non-fiction</div>
+                            <label for="target-word-count">Words per Chapter</label>
+                            <input type="number" id="target-word-count" min="500" max="5000" value="2000" onchange="updateSetupFields()">
                         </div>
                     </div>
-
-                    <!-- Action Buttons at Bottom -->
-                    <div class="setup-actions">
-                        <div class="random-idea-section">
-                            <button class="btn btn-secondary" onclick="generateRandomIdea()" id="random-idea-btn" style="display: none;">
-                                <span class="label">Generate Book Idea</span>
-                            </button>
-                            <p class="random-idea-hint">Select category and target audience first, then generate a unique book idea!</p>
-                        </div>
-
-                        <div class="main-setup-actions">
-                            <button class="btn btn-primary btn-large" onclick="collectBookData(); autoSave(); showStep('outline')">
-                                <span class="label">Start Creating Book</span>
-                            </button>
-                            <button class="btn btn-secondary btn-large" onclick="startOneClickGeneration()">
-                                <span class="label">1-Click Generation</span>
-                            </button>
-                        </div>
-
-                        <div class="secondary-actions">
-                            <button class="btn btn-danger btn-sm" onclick="resetEverything()">
-                                <span class="label">Reset & Start New</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Book Outline Step -->
-            <div id="outline" class="step">
-                <div class="step-header">
-                    <h2 class="step-title">Book Outline & Structure</h2>
-                    <p class="step-description">Create your book's logical structure and chapter framework</p>
-                </div>
-
-                <div class="step-content">
-                    <!-- Primary Generation Actions -->
-                    <div class="primary-actions-section">
-                        <div class="main-generation-actions">
-                            <button class="btn btn-primary btn-large" onclick="generateOutline()">
-                                <span class="label">Generate Book Outline</span>
-                            </button>
-                            <button class="btn btn-secondary" onclick="regenerateOutline()">
-                                <span class="label">Regenerate</span>
-                            </button>
-                            <button class="btn btn-ghost" onclick="clearOutlineContent()">
-                                <span class="label">Clear Content</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Content Field -->
-                    <div class="form-group">
-                        <label for="outline-content">Book Outline & Structure</label>
-                        <div class="textarea-container">
-                            <textarea id="outline-content" 
-                                    placeholder="Type or paste your book outline here, or use AI generation above..." 
-                                    rows="20"
-                                    oninput="saveOutlineContent()"></textarea>
-                            <div class="word-count" id="outline-word-count">0 words</div>
-                        </div>
-                        <div class="form-hint">Enter your complete book structure including chapter breakdown, key concepts, logical flow, etc.</div>
-                    </div>
-
-                    <!-- Advanced Settings & Quality Enhancement -->
-                    <div class="collapsible-section">
-                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
-                            <span class="toggle-icon">▼</span>
-                            <h3>Advanced Settings & Quality Enhancement</h3>
-                        </div>
-                        <div class="collapsible-content">
-                            <div class="feedback-controls">
-                                <h4>Quality Enhancement & Feedback</h4>
-                                <div class="feedback-options">
-                                    <label>
-                                        <span>Feedback Mode:</span>
-                                        <select id="outline-feedback-mode">
-                                            <option value="ai">AI Analysis</option>
-                                            <option value="manual">Manual Feedback</option>
-                                        </select>
-                                    </label>
-                                    <label>
-                                        <span>Feedback Loops:</span>
-                                        <select id="outline-feedback-loops">
-                                            <option value="0">No feedback</option>
-                                            <option value="1">1 loop</option>
-                                            <option value="2">2 loops</option>
-                                            <option value="3">3 loops</option>
-                                            <option value="5">5 loops</option>
-                                        </select>
-                                    </label>
-                                    <div class="feedback-buttons">
-                                        <button class="btn btn-ghost btn-sm" onclick="runFeedbackLoop('outline')">
-                                            <span class="label">Run Feedback Loop</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div id="outline-manual-feedback" class="manual-feedback-section" style="display: none;">
-                                    <label for="outline-manual-input">Manual Feedback Instructions:</label>
-                                    <textarea id="outline-manual-input" placeholder="Describe what you'd like to improve or change about the book outline..." rows="4"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="prompt-editor">
-                                <h4>Prompt Customization</h4>
-                                <label for="outline-prompt">Book Outline Generation Prompt</label>
-                                <textarea id="outline-prompt" class="prompt-textarea"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Navigation -->
+                    
                     <div class="step-actions">
-                        <button class="btn btn-success btn-large" onclick="proceedToResearch()" id="outline-next" style="display: none;">
-                            <span class="label">Next: Research & Planning</span>
+                        <button class="btn btn-primary btn-lg" onclick="generateRandomIdea()">
+                            <i class="fas fa-lightbulb"></i>
+                            Generate Idea
+                        </button>
+                        <button class="btn btn-primary btn-lg" id="setup-next" onclick="showStep('research')" style="display: none;">
+                            <i class="fas fa-arrow-right"></i>
+                            Continue to Research
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Research & Planning Step -->
+            <!-- Research Step -->
             <div id="research" class="step">
                 <div class="step-header">
-                    <h2 class="step-title">Research & Content Planning</h2>
-                    <p class="step-description">Develop detailed content plans, research points, and chapter frameworks</p>
+                    <h2 class="step-title">Research Framework</h2>
+                    <p class="step-description">Establish credibility and build a comprehensive research foundation</p>
                 </div>
-
                 <div class="step-content">
-                    <!-- Primary Generation Actions -->
-                    <div class="primary-actions-section">
-                        <div class="main-generation-actions">
-                            <button class="btn btn-primary btn-large" onclick="generateResearchPlan()">
-                                <span class="label">Generate Research Plan</span>
+                    <div class="generation-controls">
+                        <div class="controls-row">
+                            <button class="btn btn-primary" onclick="generateResearch()">
+                                <i class="fas fa-search"></i>
+                                Generate Research Plan
                             </button>
-                            <button class="btn btn-secondary" onclick="regenerateResearchPlan()">
-                                <span class="label">Regenerate</span>
+                            <button class="btn btn-secondary" onclick="showEditModal('research')">
+                                <i class="fas fa-edit"></i>
+                                Edit & Improve
                             </button>
-                            <button class="btn btn-ghost" onclick="clearResearchContent()">
-                                <span class="label">Clear Content</span>
+                            <button class="btn btn-secondary" onclick="estimateCost('research')">
+                                <i class="fas fa-calculator"></i>
+                                Cost Estimate
                             </button>
                         </div>
                     </div>
-
-                    <!-- Content Field -->
-                    <div class="form-group">
-                        <label for="research-content">Research Plan & Content Structure</label>
+                    
+                    <div class="content-area">
+                        <h3>Research Framework</h3>
                         <div class="textarea-container">
-                            <textarea id="research-content" 
-                                    placeholder="Type or paste your detailed research and content plan here, or use AI generation above..." 
-                                    rows="25"
-                                    oninput="saveResearchContent()"></textarea>
+                            <textarea id="research-content" placeholder="Your research framework will appear here..." rows="15" oninput="updateResearchContent()"></textarea>
                             <div class="word-count" id="research-word-count">0 words</div>
                         </div>
-                        <div class="form-hint">Enter your complete research plan including sources, examples, case studies, data points, and detailed chapter content plans.</div>
                     </div>
-
-                    <!-- Advanced Settings & Quality Enhancement -->
-                    <div class="collapsible-section">
-                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
-                            <span class="toggle-icon">▼</span>
-                            <h3>Advanced Settings & Quality Enhancement</h3>
-                        </div>
-                        <div class="collapsible-content">
-                            <div class="feedback-controls">
-                                <h4>Quality Enhancement & Feedback</h4>
-                                <div class="feedback-options">
-                                    <label>
-                                        <span>Feedback Mode:</span>
-                                        <select id="research-feedback-mode">
-                                            <option value="ai">AI Analysis</option>
-                                            <option value="manual">Manual Feedback</option>
-                                        </select>
-                                    </label>
-                                    <label>
-                                        <span>Feedback Loops:</span>
-                                        <select id="research-feedback-loops">
-                                            <option value="0">No feedback</option>
-                                            <option value="1">1 loop</option>
-                                            <option value="2">2 loops</option>
-                                            <option value="3">3 loops</option>
-                                            <option value="5">5 loops</option>
-                                        </select>
-                                    </label>
-                                    <div class="feedback-buttons">
-                                        <button class="btn btn-ghost btn-sm" onclick="runFeedbackLoop('research')">
-                                            <span class="label">Run Feedback Loop</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div id="research-manual-feedback" class="manual-feedback-section" style="display: none;">
-                                    <label for="research-manual-input">Manual Feedback Instructions:</label>
-                                    <textarea id="research-manual-input" placeholder="Describe what you'd like to improve or change about the research planning..." rows="4"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="prompt-editor">
-                                <h4>Prompt Customization</h4>
-                                <label for="research-prompt">Research Planning Prompt</label>
-                                <textarea id="research-prompt" class="prompt-textarea"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Navigation -->
+                    
                     <div class="step-actions">
-                        <button class="btn btn-success btn-large" onclick="proceedToWriting()" id="research-next" style="display: none;">
-                            <span class="label">Next: Writing</span>
+                        <button class="btn btn-secondary" onclick="showStep('setup')">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Setup
+                        </button>
+                        <button class="btn btn-primary btn-lg" id="research-next" onclick="showStep('chapters')" style="display: none;">
+                            <i class="fas fa-arrow-right"></i>
+                            Continue to Structure
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapters Step -->
+            <div id="chapters" class="step">
+                <div class="step-header">
+                    <h2 class="step-title">Chapter Structure</h2>
+                    <p class="step-description">Create a detailed outline and chapter breakdown</p>
+                </div>
+                <div class="step-content">
+                    <div class="generation-controls">
+                        <div class="controls-row">
+                            <button class="btn btn-primary" onclick="generateChapterOutline()">
+                                <i class="fas fa-list"></i>
+                                Generate Chapter Plan
+                            </button>
+                            <button class="btn btn-secondary" onclick="showEditModal('chapters')">
+                                <i class="fas fa-edit"></i>
+                                Edit & Improve
+                            </button>
+                            <button class="btn btn-secondary" onclick="estimateCost('chapters')">
+                                <i class="fas fa-calculator"></i>
+                                Cost Estimate
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-area">
+                        <h3>Chapter Structure & Outline</h3>
+                        <div class="textarea-container">
+                            <textarea id="chapters-content" placeholder="Your detailed chapter plan will appear here..." rows="15" oninput="updateChaptersContent()"></textarea>
+                            <div class="word-count" id="chapters-word-count">0 words</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="showStep('research')">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Research
+                        </button>
+                        <button class="btn btn-primary btn-lg" id="chapters-next" onclick="showStep('writing')" style="display: none;">
+                            <i class="fas fa-arrow-right"></i>
+                            Continue to Writing
                         </button>
                     </div>
                 </div>
@@ -436,78 +1026,63 @@
             <!-- Writing Step -->
             <div id="writing" class="step">
                 <div class="step-header">
-                    <h2 class="step-title">Writing Chapters</h2>
-                    <p class="step-description">Generate professional, informative content for each chapter</p>
+                    <h2 class="step-title">Content Writing</h2>
+                    <p class="step-description">Generate and refine your book chapters</p>
                 </div>
-
                 <div class="step-content">
-                    <!-- Progress Section -->
-                    <div class="progress-section">
-                        <div class="progress-bar">
-                            <div id="writing-progress" class="progress-fill"></div>
+                    <div class="generation-controls">
+                        <div class="controls-row">
+                            <button class="btn btn-primary btn-lg" onclick="generateAllChapters()">
+                                <i class="fas fa-magic"></i>
+                                Generate All Chapters
+                            </button>
+                            <button class="btn btn-primary" onclick="generateSelectedChapters()" id="generate-selected-btn" disabled>
+                                <i class="fas fa-check-square"></i>
+                                Generate Selected (0)
+                            </button>
+                            <button class="btn btn-secondary" onclick="toggleAllChapters()">
+                                <i class="fas fa-eye"></i>
+                                Expand/Collapse All
+                            </button>
                         </div>
-                        <div id="writing-status">Ready to begin writing chapters...</div>
+                        <p class="text-muted text-center">Generate content or write directly in the chapter fields below</p>
                     </div>
-
-                    <!-- Writing Container -->
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="completed-chapters">0</div>
+                            <div class="stat-label">Chapters Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="total-words">0</div>
+                            <div class="stat-label">Total Words</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="estimated-pages">0</div>
+                            <div class="stat-label">Estimated Pages</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="completion-percentage">0%</div>
+                            <div class="stat-label">Completion</div>
+                        </div>
+                    </div>
+                    
                     <div id="chapters-container">
-                        <div class="writing-placeholder">
-                            <p>Setting up writing interface...</p>
-                        </div>
+                        <!-- Chapters will be dynamically generated -->
                     </div>
-
-                    <!-- Advanced Settings & Quality Enhancement -->
-                    <div class="collapsible-section">
-                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
-                            <span class="toggle-icon">▼</span>
-                            <h3>Advanced Settings & Quality Enhancement</h3>
-                        </div>
-                        <div class="collapsible-content">
-                            <div class="feedback-controls">
-                                <h4>Quality Enhancement & Feedback</h4>
-                                <div class="feedback-options">
-                                    <label>
-                                        <span>Feedback Mode:</span>
-                                        <select id="writing-feedback-mode">
-                                            <option value="ai">AI Analysis</option>
-                                            <option value="manual">Manual Feedback</option>
-                                        </select>
-                                    </label>
-                                    <label>
-                                        <span>Feedback Loops:</span>
-                                        <select id="writing-feedback-loops">
-                                            <option value="0">No feedback</option>
-                                            <option value="1">1 loop</option>
-                                            <option value="2">2 loops</option>
-                                            <option value="3">3 loops</option>
-                                            <option value="5">5 loops</option>
-                                        </select>
-                                    </label>
-                                    <div class="feedback-buttons">
-                                        <button class="btn btn-ghost btn-sm" onclick="runFeedbackLoop('writing')">
-                                            <span class="label">Run Feedback Loop</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div id="writing-manual-feedback" class="manual-feedback-section" style="display: none;">
-                                    <label for="writing-manual-input">Manual Feedback Instructions:</label>
-                                    <textarea id="writing-manual-input" placeholder="Describe what you'd like to improve or change about the writing..." rows="4"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="prompt-editor">
-                                <h4>Prompt Customization</h4>
-                                <label for="writing-prompt">Chapter Writing Prompt</label>
-                                <textarea id="writing-prompt" class="prompt-textarea"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Navigation -->
-                    <div class="writing-footer">
-                        <button class="btn btn-success btn-large" onclick="proceedToExport()" style="display: none;" id="writing-next">
-                            <span class="label">Next: Export</span>
+                    
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="showStep('chapters')">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Structure
+                        </button>
+                        <button class="btn btn-primary btn-lg" onclick="generateBookTitle()">
+                            <i class="fas fa-heading"></i>
+                            Generate Book Title
+                        </button>
+                        <button class="btn btn-primary btn-lg" id="writing-next" onclick="showStep('export')">
+                            <i class="fas fa-arrow-right"></i>
+                            Continue to Export
                         </button>
                     </div>
                 </div>
@@ -516,646 +1091,1683 @@
             <!-- Export Step -->
             <div id="export" class="step">
                 <div class="step-header">
-                    <h2 class="step-title">Export Your Book</h2>
-                    <p class="step-description">Download your completed non-fiction book in multiple professional formats</p>
+                    <h2 class="step-title">Export & Download</h2>
+                    <p class="step-description">Download your completed book in multiple formats</p>
                 </div>
-
                 <div class="step-content">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number" id="total-words">0</div>
-                            <div class="stat-label">Total Words</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="total-chapters">0</div>
-                            <div class="stat-label">Chapters</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="avg-words">0</div>
-                            <div class="stat-label">Avg Words/Chapter</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" id="reading-time">0</div>
-                            <div class="stat-label">Reading Time (min)</div>
+                    <div class="content-area">
+                        <h3>Book Summary</h3>
+                        <div id="book-summary">
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-value" id="export-chapters">0</div>
+                                    <div class="stat-label">Chapters</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="export-words">0</div>
+                                    <div class="stat-label">Total Words</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="export-pages">0</div>
+                                    <div class="stat-label">Estimated Pages</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value" id="export-category">-</div>
+                                    <div class="stat-label">Category</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="export-grid">
-                        <div class="export-card">
-                            <div class="export-icon">📄</div>
-                            <h4>Text Format</h4>
-                            <p>Simple text file for basic reading</p>
-                            <button class="btn btn-primary" onclick="downloadBook('txt')">Download TXT</button>
-                        </div>
-                        <div class="export-card">
-                            <div class="export-icon">🌐</div>
-                            <h4>HTML Format</h4>
-                            <p>Web-ready format with styling</p>
-                            <button class="btn btn-primary" onclick="downloadBook('html')">Download HTML</button>
-                        </div>
-                        <div class="export-card">
-                            <div class="export-icon">📝</div>
-                            <h4>Markdown Format</h4>
-                            <p>Universal format for publishing platforms</p>
-                            <button class="btn btn-primary" onclick="downloadBook('md')">Download Markdown</button>
-                        </div>
-                        <div class="export-card">
-                            <div class="export-icon">📋</div>
-                            <h4>Copy to Clipboard</h4>
-                            <p>Quick copy for pasting elsewhere</p>
-                            <button class="btn btn-primary" onclick="copyToClipboard()">Copy Text</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Settings Step -->
-            <div id="settings" class="step">
-                <div class="step-header">
-                    <h2 class="step-title">AI Settings & Configuration</h2>
-                    <p class="step-description">Configure your AI settings and customize all generation prompts</p>
-                </div>
-
-                <div class="step-content">
-                    <div class="settings-section">
-                        <h3>API Configuration</h3>
-                        
-                        <div class="api-provider-toggle">
-                            <div class="toggle-group">
-                                <button class="toggle-btn active" onclick="switchApiProvider('openrouter')" id="openrouter-btn">
-                                    OpenRouter
-                                </button>
-                                <button class="toggle-btn" onclick="switchApiProvider('openai')" id="openai-btn">
-                                    OpenAI
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group" id="openrouter-key-group">
-                                <label for="openrouter-api-key">OpenRouter API Key</label>
-                                <input type="password" id="openrouter-api-key" placeholder="Enter your OpenRouter API key..." onchange="saveSettings(); updateModelSelect()">
-                                <div class="form-hint">Get your API key from <a href="https://openrouter.ai" target="_blank">openrouter.ai</a></div>
-                            </div>
-
-                            <div class="form-group" id="openai-key-group" style="display: none;">
-                                <label for="openai-api-key">OpenAI API Key</label>
-                                <input type="password" id="openai-api-key" placeholder="Enter your OpenAI API key..." onchange="saveSettings(); updateModelSelect()">
-                                <div class="form-hint">Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="model-select">Default AI Model</label>
-                                <select id="model-select" onchange="updateModelInfo(); saveSettings()">
-                                    <!-- Models will be populated by JavaScript -->
-                                </select>
-                                <div id="model-cost-info" class="form-hint">Best quality models marked with stars | Budget models marked with dollar signs</div>
-                            </div>
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="temperature">Temperature (Creativity): <span id="temp-value">0.7</span></label>
-                                <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7" oninput="updateTempValue(); saveSettings()">
-                                <div class="form-hint">Higher = more creative, Lower = more focused</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="max-tokens">Max Tokens per Request</label>
-                                <input type="number" id="max-tokens" min="1000" max="1000000" value="50000" onchange="saveSettings()">
-                                <div class="form-hint">Maximum length of each AI response</div>
-                            </div>
-                        </div>
-
-                        <div class="settings-actions">
-                            <button class="btn btn-primary" onclick="testApiConnection()">
-                                <span class="label">Test Connection</span>
+                    
+                    <div class="content-area">
+                        <h3>Download Options</h3>
+                        <div class="controls-row">
+                            <button class="btn btn-primary" onclick="downloadBook('txt')">
+                                <i class="fas fa-file-text"></i>
+                                Download TXT
                             </button>
-                            <button class="btn btn-ghost" onclick="exportSettings()">
-                                <span class="label">Export Settings</span>
+                            <button class="btn btn-primary" onclick="downloadBook('html')">
+                                <i class="fas fa-file-code"></i>
+                                Download HTML
                             </button>
-                            <button class="btn btn-ghost" onclick="importSettings()">
-                                <span class="label">Import Settings</span>
+                            <button class="btn btn-primary" onclick="downloadBook('md')">
+                                <i class="fas fa-markdown"></i>
+                                Download Markdown
+                            </button>
+                            <button class="btn btn-secondary" onclick="copyToClipboard()">
+                                <i class="fas fa-copy"></i>
+                                Copy to Clipboard
                             </button>
                         </div>
-
-                        <div id="api-status"></div>
                     </div>
-
-                    <!-- Advanced Model Selection & Custom Prompts -->
-                    <div class="collapsible-section advanced-settings-section">
-                        <div class="collapsible-header" onclick="toggleCollapsibleSection(this)">
-                            <span class="toggle-icon">▼</span>
-                            <h3>Advanced Model Selection & Custom Prompts</h3>
-                        </div>
-                        <div class="collapsible-content">
-                            <div class="advanced-models-container">
-                                <div class="advanced-models-toggle">
-                                    <label class="toggle-switch">
-                                        <input type="checkbox" id="enable-advanced-models" onchange="saveAdvancedModelSettings(); updateAdvancedModelsVisualState()">
-                                        <span class="slider"></span>
-                                    </label>
-                                    <div class="toggle-info">
-                                        <span class="toggle-label">Enable Advanced Models</span>
-                                        <p class="form-hint">Customize which AI model to use for each generation step. Different models excel at different tasks.</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="advanced-models-grid">
-                                    <div class="model-setting">
-                                        <label for="advanced-model-outline">Book Outline Generation</label>
-                                        <select id="advanced-model-outline" onchange="saveAdvancedModelSettings()">
-                                            <option value="">Use Default Model</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="model-setting">
-                                        <label for="advanced-model-research">Research Planning</label>
-                                        <select id="advanced-model-research" onchange="saveAdvancedModelSettings()">
-                                            <option value="">Use Default Model</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="model-setting">
-                                        <label for="advanced-model-writing">Chapter Writing</label>
-                                        <select id="advanced-model-writing" onchange="saveAdvancedModelSettings()">
-                                            <option value="">Use Default Model</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="model-setting">
-                                        <label for="advanced-model-feedback">Feedback & Analysis</label>
-                                        <select id="advanced-model-feedback" onchange="saveAdvancedModelSettings()">
-                                            <option value="">Use Default Model</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="model-setting">
-                                        <label for="advanced-model-randomIdea">Random Ideas</label>
-                                        <select id="advanced-model-randomIdea" onchange="saveAdvancedModelSettings()">
-                                            <option value="">Use Default Model</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="model-setting">
-                                        <label for="advanced-model-bookTitle">Book Title & Description</label>
-                                        <select id="advanced-model-bookTitle" onchange="saveAdvancedModelSettings()">
-                                            <option value="">Use Default Model</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="advanced-models-actions">
-                                    <button class="btn btn-ghost btn-sm" onclick="resetAdvancedModelSettings()">
-                                        <span class="label">Reset All to Default</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="custom-prompts-container">
-                                <h4>Custom Prompts</h4>
-                                <p class="form-hint">Customize the AI generation prompts for each step. Changes are saved automatically.</p>
-                                
-                                <div class="prompt-editors">
-                                    <div class="prompt-group">
-                                        <label for="settings-outline-prompt">Book Outline Generation Prompt</label>
-                                        <textarea id="settings-outline-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('outline')"></textarea>
-                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('outline')">Reset to Default</button>
-                                    </div>
-
-                                    <div class="prompt-group">
-                                        <label for="settings-research-prompt">Research Planning Prompt</label>
-                                        <textarea id="settings-research-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('research')"></textarea>
-                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('research')">Reset to Default</button>
-                                    </div>
-
-                                    <div class="prompt-group">
-                                        <label for="settings-writing-prompt">Chapter Writing Prompt</label>
-                                        <textarea id="settings-writing-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('writing')"></textarea>
-                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('writing')">Reset to Default</button>
-                                    </div>
-
-                                    <div class="prompt-group">
-                                        <label for="settings-analysis-prompt">Feedback Analysis Prompt</label>
-                                        <textarea id="settings-analysis-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('analysis')"></textarea>
-                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('analysis')">Reset to Default</button>
-                                    </div>
-
-                                    <div class="prompt-group">
-                                        <label for="settings-randomidea-prompt">Random Idea Generation Prompt</label>
-                                        <textarea id="settings-randomidea-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('randomIdea')"></textarea>
-                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('randomIdea')">Reset to Default</button>
-                                    </div>
-
-                                    <div class="prompt-group">
-                                        <label for="settings-booktitle-prompt">Book Title & Description Generation Prompt</label>
-                                        <textarea id="settings-booktitle-prompt" class="prompt-textarea" rows="8" onchange="saveCustomPrompt('bookTitle')"></textarea>
-                                        <button class="btn btn-ghost btn-sm" onclick="resetCustomPrompt('bookTitle')">Reset to Default</button>
-                                    </div>
-                                </div>
-
-                                <div class="custom-prompts-actions">
-                                    <button class="btn btn-ghost" onclick="resetAllCustomPrompts()">
-                                        <span class="label">Reset All Prompts</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tutorial Step -->
-            <div id="tutorial" class="step">
-                <div class="step-header">
-                    <h2 class="step-title">Tutorial & Guide</h2>
-                    <p class="step-description">Complete guide to using BookForge AI for non-fiction writing</p>
-                </div>
-
-                <div class="step-content">
-                    <div class="tutorial-section">
-                        <h3>Getting Started</h3>
-
-                        <div class="tutorial-card">
-                            <h4>What is BookForge AI?</h4>
-                            <p>BookForge AI is a specialized platform for creating professional non-fiction books:</p>
-                            <ul>
-                                <li><strong>Expert Knowledge:</strong> Generate authoritative content on any topic</li>
-                                <li><strong>Research-Based:</strong> AI creates comprehensive research plans and content</li>
-                                <li><strong>Multiple Categories:</strong> Business, self-help, technology, health, and more</li>
-                                <li><strong>Professional Quality:</strong> Publication-ready output for experts and beginners</li>
-                            </ul>
-                        </div>
-
-                        <div class="tutorial-card">
-                            <h4>AI Settings Configuration</h4>
-                            <p>Set up your AI connection:</p>
-                            <ul>
-                                <li><strong>API Providers:</strong> Choose OpenRouter or OpenAI</li>
-                                <li><strong>Model Selection:</strong> Different models for different needs</li>
-                                <li><strong>Advanced Models:</strong> Customize models per generation step</li>
-                                <li><strong>Temperature:</strong> Control creativity vs factual precision (0-1)</li>
-                                <li><strong>Custom Prompts:</strong> Modify generation behavior for your expertise</li>
-                            </ul>
-                        </div>
-
-                        <div class="tutorial-card">
-                            <h4>Book Creation Process</h4>
-                            <p>Follow the structured approach for non-fiction:</p>
-                            <ul>
-                                <li><strong>Book Setup:</strong> Define category, audience, topic, and approach</li>
-                                <li><strong>Book Outline:</strong> Create logical structure and chapter framework</li>
-                                <li><strong>Research & Planning:</strong> Develop detailed content plans and sources</li>
-                                <li><strong>Writing:</strong> Generate informative, authoritative content</li>
-                                <li><strong>Export:</strong> Download in multiple professional formats</li>
-                            </ul>
-                        </div>
-
-                        <div class="tutorial-card">
-                            <h4>Quality Enhancement</h4>
-                            <p>Improve your content with feedback loops:</p>
-                            <ul>
-                                <li><strong>AI Analysis:</strong> Automated quality assessment for clarity and authority</li>
-                                <li><strong>Manual Feedback:</strong> Provide specific improvement instructions</li>
-                                <li><strong>Multiple Iterations:</strong> Run 1-5 improvement cycles</li>
-                                <li><strong>Step-by-Step:</strong> Enhance outline, research, and writing</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="tutorial-section">
-                        <h3>Non-Fiction Specific Features</h3>
-
-                        <div class="tutorial-card">
-                            <h4>Book Categories</h4>
-                            <p>Optimized for different non-fiction types:</p>
-                            <ul>
-                                <li><strong>Business & Entrepreneurship:</strong> Strategy, leadership, startups</li>
-                                <li><strong>Self-Help & Personal Development:</strong> Productivity, habits, mindset</li>
-                                <li><strong>Health & Wellness:</strong> Fitness, nutrition, mental health</li>
-                                <li><strong>Technology & Programming:</strong> Coding, software, tech trends</li>
-                                <li><strong>Science & Education:</strong> Research, academic, educational content</li>
-                            </ul>
-                        </div>
-
-                        <div class="tutorial-card">
-                            <h4>Research & Planning</h4>
-                            <p>AI-powered research assistance:</p>
-                            <ul>
-                                <li>Comprehensive content planning for each chapter</li>
-                                <li>Research points and source recommendations</li>
-                                <li>Case study and example suggestions</li>
-                                <li>Logical flow and knowledge progression</li>
-                                <li>Expert-level content structure</li>
-                            </ul>
-                        </div>
-
-                        <div class="tutorial-card">
-                            <h4>Writing Quality</h4>
-                            <p>Professional non-fiction standards:</p>
-                            <ul>
-                                <li>Clear, authoritative writing style</li>
-                                <li>Evidence-based content and claims</li>
-                                <li>Practical examples and actionable advice</li>
-                                <li>Appropriate complexity for target audience</li>
-                                <li>Consistent tone and expertise level</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="tutorial-section">
-                        <h3>Tips & Best Practices</h3>
-
-                        <div class="tutorial-card">
-                            <h4>Content Quality Tips</h4>
-                            <ul>
-                                <li>Use feedback loops for better authority and clarity</li>
-                                <li>Review and fact-check AI-generated content</li>
-                                <li>Maintain consistent expertise level throughout</li>
-                                <li>Follow category-specific best practices</li>
-                                <li>Export regularly to backup your work</li>
-                            </ul>
-                        </div>
-
-                        <div class="tutorial-card">
-                            <h4>Audience Targeting</h4>
-                            <ul>
-                                <li><strong>Beginners:</strong> Step-by-step, simple language, lots of examples</li>
-                                <li><strong>Intermediate:</strong> Practical application, some technical depth</li>
-                                <li><strong>Advanced:</strong> Detailed analysis, expert-level insights</li>
-                                <li><strong>Professionals:</strong> Business-focused, ROI-driven content</li>
-                            </ul>
-                        </div>
-
-                        <div class="tutorial-card">
-                            <h4>Cost Management</h4>
-                            <ul>
-                                <li>Use cost estimation before generation</li>
-                                <li>Budget models for drafts, premium for final</li>
-                                <li>Optimize feedback loops usage</li>
-                                <li>Generate chapters individually to control costs</li>
-                                <li>Use advanced model selection strategically</li>
-                            </ul>
-                        </div>
+                    
+                    <div class="step-actions">
+                        <button class="btn btn-secondary" onclick="showStep('writing')">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Writing
+                        </button>
+                        <button class="btn btn-primary btn-lg" onclick="newProject()">
+                            <i class="fas fa-plus"></i>
+                            Start New Book
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Generation Progress Indicator -->
-    <div class="generation-indicator" id="generation-indicator">
-        <div class="generation-animation"></div>
-        <h3 id="generation-title">AI Generation in Progress</h3>
-        <p id="generation-description">Please wait while the AI processes your request...</p>
-    </div>
-
-    <!-- Auto-save Indicator -->
-    <div id="auto-save-indicator" class="auto-save-indicator">Auto-saved</div>
-
-    <!-- Custom Alert Modal -->
-    <div id="custom-alert-modal" class="modal custom-alert-modal">
-        <div class="modal-content alert-content">
-            <div class="alert-header">
-                <h3 id="alert-title">Notification</h3>
-            </div>
-            <div class="alert-body">
-                <div id="alert-message">Alert message will appear here</div>
-            </div>
-            <div class="alert-footer">
-                <button class="btn btn-primary" id="alert-ok-btn" onclick="closeCustomAlert()">OK</button>
-                <button class="btn btn-ghost" id="alert-cancel-btn" onclick="closeCustomAlert(false)" style="display: none;">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Enhanced Expand Modal -->
-    <div id="expand-modal" class="expand-modal">
-        <div class="expand-header">
-            <div class="expand-title">
-                <h3 id="expand-chapter-title">Chapter 1 - Expanded View</h3>
-                <div class="expand-info">
-                    <span id="expand-word-count">0 words</span>
-                    <span id="expand-reading-time">0 min read</span>
-                </div>
-            </div>
-            <div class="expand-controls">
-                <button class="btn btn-ghost btn-sm" onclick="toggleExpandedReadMode()">
-                    <span id="read-mode-label">Read Mode</span>
-                </button>
-                <button class="btn btn-success btn-sm" onclick="saveExpandedChapter()">
-                    <span class="label">Save Changes</span>
-                </button>
-                <button class="btn btn-danger btn-sm" onclick="closeExpandModal()">
-                    <span class="label">Close</span>
-                </button>
-            </div>
-        </div>
-        <div class="expand-content">
-            <div class="expand-editor" id="expand-editor">
-                <textarea id="expand-textarea" placeholder="Chapter content..." oninput="updateExpandedWordCount()"></textarea>
-            </div>
-            <div class="expand-reader" id="expand-reader" style="display: none;">
-                <div id="expand-reader-content"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- One-Click Generation Modal -->
-    <div id="one-click-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>1-Click Generation Configuration</h3>
-                <button class="btn btn-ghost btn-sm" onclick="closeOneClickModal()">
-                    <span class="label">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Configure feedback loops for each generation step:</p>
-                
-                <div class="one-click-config">
-                    <div class="config-row">
-                        <label>Book Outline Feedback Loops:</label>
-                        <select id="one-click-outline-loops">
-                            <option value="0">No feedback</option>
-                            <option value="1">1 loop</option>
-                            <option value="2">2 loops</option>
-                            <option value="3">3 loops</option>
-                        </select>
-                    </div>
-                    <div class="config-row">
-                        <label>Research Planning Feedback Loops:</label>
-                        <select id="one-click-research-loops">
-                            <option value="0">No feedback</option>
-                            <option value="1">1 loop</option>
-                            <option value="2">2 loops</option>
-                            <option value="3">3 loops</option>
-                        </select>
-                    </div>
-                    <div class="config-row">
-                        <label>Writing Feedback Loops:</label>
-                        <select id="one-click-writing-loops">
-                            <option value="0">No feedback</option>
-                            <option value="1">1 loop</option>
-                            <option value="2">2 loops</option>
-                            <option value="3">3 loops</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-ghost" onclick="closeOneClickModal()">Cancel</button>
-                <button class="btn btn-primary" onclick="startOneClickProcess()">
-                    <span class="label">Start Generation</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Management Modal -->
-    <div id="project-management-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Manage Projects</h3>
-                <button class="btn btn-ghost btn-sm" onclick="closeProjectManagementModal()">
-                    <span class="label">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="project-management-content">
-                    <div class="project-stats">
-                        <p>Saved Projects: <span id="project-count">0</span>/10</p>
-                        <div class="progress-bar">
-                            <div id="project-count-progress" class="progress-fill" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div id="project-list" class="project-list">
-                        <!-- Projects will be populated here -->
-                    </div>
-                    
-                    <div class="project-management-actions">
-                        <button class="btn btn-ghost btn-sm" onclick="exportAllProjects()">
-                            <span class="label">Export All</span>
-                        </button>
-                        <button class="btn btn-ghost btn-sm" onclick="importProjects()">
-                            <span class="label">Import Projects</span>
-                        </button>
-                        <button class="btn btn-danger btn-sm" onclick="clearAllProjects()">
-                            <span class="label">Clear All</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Feedback Modal -->
-    <div id="feedback-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Send Feedback</h3>
-                <button class="btn btn-ghost btn-sm" onclick="closeFeedbackModal()">
-                    <span class="label">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="feedback-type">Feedback Type</label>
-                    <select id="feedback-type">
-                        <option value="bug">Bug Report</option>
-                        <option value="feature">Feature Request</option>
-                        <option value="improvement">Improvement Suggestion</option>
-                        <option value="question">Question</option>
-                        <option value="praise">Compliment</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="feedback-message">Your Feedback</label>
-                    <textarea id="feedback-message" rows="6" placeholder="Please describe your feedback in detail..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="feedback-email">Email (optional)</label>
-                    <input type="email" id="feedback-email" placeholder="your@email.com">
-                    <div class="form-hint">Leave your email if you'd like a response</div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-ghost" onclick="closeFeedbackModal()">Cancel</button>
-                <button class="btn btn-primary" onclick="submitFeedback()">
-                    <span class="label">Send Feedback</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Donation Modal -->
-    <div id="donation-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Support BookForge AI</h3>
-                <button class="btn btn-ghost btn-sm" onclick="closeDonationModal()">
-                    <span class="label">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="donation-content">
-                    <p><strong>BookForge AI is completely free to use!</strong></p>
-                    <p>If you find this tool helpful and would like to support its development, consider buying me a coffee. Your support helps me:</p>
-                    <ul>
-                        <li>Keep the service free for everyone</li>
-                        <li>Add new features and improvements</li>
-                        <li>Maintain and improve the platform</li>
-                        <li>Create better AI writing tools</li>
-                    </ul>
-                    
-                    <div class="donation-options">
-                        <h4>Choose an amount:</h4>
-                        <div class="donation-buttons">
-                            <button class="btn btn-ghost donation-amount selected" onclick="setDonationAmount(5)">
-                                <span class="label">$5 Coffee</span>
-                            </button>
-                            <button class="btn btn-ghost donation-amount" onclick="setDonationAmount(10)">
-                                <span class="label">$10 Meal</span>
-                            </button>
-                            <button class="btn btn-ghost donation-amount" onclick="setDonationAmount(25)">
-                                <span class="label">$25 Generous</span>
-                            </button>
-                        </div>
-                        
-                        <div class="custom-amount">
-                            <label>Or enter custom amount (USD):</label>
-                            <input type="number" id="custom-donation-amount" min="1" placeholder="Enter amount">
-                        </div>
-                    </div>
-                    
-                    <p class="donation-note"><em>Every contribution, no matter how small, means the world to us!</em></p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-ghost" onclick="closeDonationModal()">Maybe Later</button>
-                <button class="btn btn-primary" onclick="proceedToDonate()" id="donate-btn">
-                    <span class="label">Donate $5</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Loading Overlay -->
-    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+    <!-- Modals -->
+    <div id="loading-overlay" class="loading-overlay">
         <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <div class="loading-text" id="loading-text">Processing...</div>
-            <button class="btn btn-danger btn-sm" onclick="cancelOneClickGeneration()" id="cancel-btn" style="display: none;">
-                <span class="label">Cancel</span>
-            </button>
+            <div class="spinner"></div>
+            <div class="loading-text" id="loading-text">Generating content...</div>
+            <div class="loading-description">This may take a few moments</div>
+            <div class="step-actions" style="margin-top: var(--spacing-lg);">
+                <button class="btn btn-danger" onclick="cancelGeneration()">Cancel</button>
+            </div>
         </div>
     </div>
 
-    <!-- Hidden file inputs -->
-    <input type="file" id="projects-import-file" style="display: none;" accept=".json" onchange="handleProjectsImport(event)">
-    <input type="file" id="settings-import-file" style="display: none;" accept=".json" onchange="handleSettingsImport(event)">
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">AI Settings</h3>
+            </div>
+            <div class="form-group">
+                <label for="api-provider">AI Provider</label>
+                <select id="api-provider" onchange="updateProviderFields()">
+                    <option value="openrouter">OpenRouter</option>
+                    <option value="openai">OpenAI</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="api-key">API Key</label>
+                <input type="password" id="api-key" placeholder="Enter your API key...">
+            </div>
+            <div class="form-group">
+                <label for="model-select">Model</label>
+                <select id="model-select">
+                    <option value="gpt-4">GPT-4</option>
+                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeSettings()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit & Improve Content</h3>
+            </div>
+            <div class="form-group">
+                <label for="edit-mode">Edit Mode</label>
+                <select id="edit-mode">
+                    <option value="ai">AI Analysis & Improvement</option>
+                    <option value="manual">Manual Feedback</option>
+                </select>
+            </div>
+            <div class="form-group" id="manual-feedback-group" style="display: none;">
+                <label for="manual-feedback">Your Feedback</label>
+                <textarea id="manual-feedback" placeholder="Describe what you want to improve..." rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="feedback-loops">Number of Improvement Cycles</label>
+                <input type="number" id="feedback-loops" min="1" max="5" value="1">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="runImprovement()">Apply Improvements</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Global Configuration
+    const CONFIG = {
+        VERSION: '1.1.0',
+        AUTO_SAVE_DELAY: 2000,
+        MAX_PROJECTS: 50,
+        WORDS_PER_PAGE: 250
+    };
+
+    // Global State
+    let bookData = {
+        id: 'current',
+        title: '',
+        category: '',
+        targetAudience: '',
+        topic: '',
+        approach: '',
+        numChapters: 12,
+        targetWordCount: 2000,
+        research: '',
+        chapterOutline: '',
+        chapters: [],
+        currentStep: 'setup',
+        createdAt: new Date().toISOString(),
+        lastSaved: new Date().toISOString()
+    };
+
+    let isGenerating = false;
+    let autoSaveTimeout = null;
+    let projects = {};
+    let currentTheme = 'professional';
+
+    // AI Settings
+    let aiSettings = {
+        provider: 'openrouter',
+        apiKey: '',
+        model: 'openai/gpt-4o',
+        temperature: 0.7,
+        maxTokens: 4000
+    };
+
+    // Category Requirements
+    const categoryRequirements = {
+        'business-entrepreneurship': {
+            requirements: "Actionable strategies, case studies, ROI focus, market analysis, leadership principles",
+            approach: "Data-driven insights, practical frameworks, real-world examples, step-by-step implementation"
+        },
+        'self-help-personal-development': {
+            requirements: "Evidence-based methods, actionable advice, personal transformation, goal achievement",
+            approach: "Psychological insights, practical exercises, habit formation, motivational content"
+        },
+        'health-wellness': {
+            requirements: "Scientific backing, safety considerations, professional disclaimers, holistic approach",
+            approach: "Research-based recommendations, practical lifestyle changes, preventive focus"
+        },
+        'technology-programming': {
+            requirements: "Current best practices, code examples, technical accuracy, practical applications",
+            approach: "Hands-on tutorials, progressive learning, real-world projects, industry standards"
+        },
+        'science-education': {
+            requirements: "Peer-reviewed sources, accurate information, clear explanations, educational value",
+            approach: "Systematic presentation, visual aids, practical applications, critical thinking"
+        },
+        'finance-investment': {
+            requirements: "Risk disclaimers, regulatory compliance, current market data, practical strategies",
+            approach: "Conservative advice, diversification principles, long-term perspective, risk management"
+        }
+    };
+
+    // Default Prompts
+    const defaultPrompts = {
+        research: `You are an expert researcher and non-fiction author creating a comprehensive research framework. Generate a thorough research plan that establishes authority and credibility.
+
+BOOK DETAILS:
+- Category: {category}
+- Target Audience: {targetAudience}
+- Topic: {topic}
+- Approach: {approach}
+- Number of Chapters: {numChapters}
+
+CATEGORY-SPECIFIC REQUIREMENTS:
+{categoryRequirements}
+
+CREATE A COMPREHENSIVE RESEARCH FRAMEWORK INCLUDING:
+
+1. **RESEARCH METHODOLOGY**:
+   - Primary source identification and evaluation criteria
+   - Secondary source research strategy
+   - Expert interview targets and questions
+   - Data collection and verification methods
+   - Fact-checking and validation processes
+
+2. **CONTENT STRATEGY**:
+   - Authority positioning and credibility building
+   - Evidence hierarchy (studies, statistics, expert opinions)
+   - Case study selection and development
+   - Practical application frameworks
+   - Reader engagement and value delivery
+
+3. **SOURCE DOCUMENTATION**:
+   - Academic and peer-reviewed sources
+   - Industry reports and authoritative publications
+   - Expert interviews and professional insights
+   - Current statistics and market data
+   - Historical context and background research
+
+4. **PRACTICAL APPLICATION**:
+   - Actionable insights and takeaways
+   - Implementation frameworks and methodologies
+   - Tools, templates, and resources
+   - Success metrics and measurement approaches
+   - Common pitfalls and how to avoid them
+
+5. **CREDIBILITY ELEMENTS**:
+   - Professional disclaimers and limitations
+   - Scope of applicability and target situations
+   - Ethical considerations and best practices
+   - Update frequency and evergreen content balance
+
+Ensure this research framework establishes you as a credible authority while providing genuine value to {targetAudience}. Focus on evidence-based content that can withstand professional scrutiny.`,
+
+        chapters: `You are an expert non-fiction author creating a detailed chapter structure. Based on the research framework, develop comprehensive chapter plans that deliver maximum value to readers.
+
+RESEARCH FRAMEWORK:
+{research}
+
+BOOK DETAILS:
+- Category: {category}
+- Target Audience: {targetAudience}
+- Number of Chapters: {numChapters}
+- Target Words per Chapter: {targetWordCount}
+
+CREATE DETAILED CHAPTER BREAKDOWN:
+
+For each chapter (1-{numChapters}), provide:
+
+1. **CHAPTER TITLE** (compelling and value-focused)
+
+2. **LEARNING OBJECTIVES**:
+   - What readers will learn and be able to do
+   - Key insights and takeaways
+   - Practical skills and knowledge gained
+
+3. **CONTENT STRUCTURE**:
+   - Opening hook: Problem or opportunity identification
+   - Core content: 3-5 main points with supporting evidence
+   - Practical application: How to implement the concepts
+   - Examples and case studies to illustrate points
+   - Chapter summary and key takeaways
+
+4. **SUPPORTING ELEMENTS**:
+   - Research sources and citations needed
+   - Statistics, studies, and data points
+   - Expert quotes and professional insights
+   - Tools, templates, or frameworks to include
+   - Actionable steps and implementation guides
+
+5. **AUDIENCE ENGAGEMENT**:
+   - Relatable examples for {targetAudience}
+   - Common challenges and solutions
+   - Exercises or reflection questions
+   - Next steps and chapter transitions
+
+6. **WORD COUNT TARGET**: {targetWordCount} words (adjust based on content importance)
+
+AUTHORITY REQUIREMENTS:
+- Maintain expert credibility throughout
+- Include evidence-based claims with sources
+- Provide practical, actionable content
+- Address {targetAudience} specific needs and challenges
+- Follow {category} best practices and standards
+
+Format as clear, numbered chapters with complete details for professional non-fiction writing.`,
+
+        writing: `You are an expert non-fiction author writing Chapter {chapterNum} of a professional {category} book. Create authoritative, well-researched content that establishes credibility and provides genuine value.
+
+CRITICAL CONTEXT:
+{contextInfo}
+
+CHAPTER {chapterNum} DETAILED PLAN:
+{chapterOutline}
+
+PREVIOUS CHAPTER ENDING (for seamless continuity):
+{previousChapterEnding}
+
+CHAPTER STRUCTURE REQUIREMENTS:
+- **Opening**: Strong hook that identifies a problem or opportunity relevant to readers
+- **Core Content**: 3-5 main sections with evidence-based insights and practical advice
+- **Application**: Clear implementation steps and actionable takeaways
+- **Examples**: Real-world case studies and relatable scenarios
+- **Conclusion**: Chapter summary and transition to next chapter
+
+PROFESSIONAL WRITING STANDARDS FOR {category}:
+- **Authority**: 25% - Establish credibility through expertise and evidence
+- **Evidence**: 30% - Include research, statistics, studies, and expert insights
+- **Practical Application**: 35% - Provide actionable advice and implementation steps
+- **Engagement**: 10% - Maintain reader interest with examples and clear writing
+- **Approach**: {approach}
+
+CATEGORY-SPECIFIC ELEMENTS:
+{categorySpecificElements}
+
+WRITING REQUIREMENTS:
+- Target length: {targetWordCount} words
+- Appropriate for {targetAudience} expertise level
+- Maintain continuity with previous chapters
+- Follow chapter outline precisely
+- Include proper disclaimers where appropriate
+- Use professional, authoritative tone
+- Provide citations and source references where needed
+
+Write Chapter {chapterNum} with expert-level content that positions you as a credible authority while delivering practical value that readers can immediately apply.`,
+
+        randomIdea: `You are a business consultant and expert non-fiction author brainstorming machine. Generate a commercially viable, professional book concept that would provide genuine value to readers and establish authority.
+
+REQUIREMENTS:
+- Category: {category}
+- Target Audience: {targetAudience}
+
+Create a unique book concept that includes:
+
+1. **TOPIC** (2-3 sentences): A compelling, valuable topic that addresses a real need or opportunity in the market. Focus on problems your target audience faces or goals they want to achieve. Make it specific, actionable, and different from existing books.
+
+2. **APPROACH** (1-2 sentences): Specify the methodology and writing style that would best serve this topic and audience. Consider whether to focus on frameworks, case studies, step-by-step guides, research synthesis, or practical implementation.
+
+3. **CHAPTER COUNT**: Recommend the optimal number of chapters for this topic and audience (business: 10-15, self-help: 12-20, technical: 15-25).
+
+GUIDELINES:
+- Address real problems or opportunities in the field
+- Ensure appropriate expertise level for target audience
+- Consider current market trends and gaps
+- Focus on actionable, implementable content
+- Think about authority-building and credibility
+- Ensure sufficient depth for suggested length
+
+FORMAT YOUR RESPONSE EXACTLY AS:
+TOPIC: [Your 2-3 sentence topic description here]
+APPROACH: [Your 1-2 sentence approach description here]  
+CHAPTERS: [Number only]`,
+
+        bookTitle: `You are a professional publishing consultant and non-fiction marketing expert. Create a compelling book title and authoritative summary that positions this as a must-read professional resource.
+
+BOOK DETAILS:
+- Category: {category}
+- Target Audience: {targetAudience}
+- Topic: {topic}
+- Approach: {approach}
+
+RESEARCH FRAMEWORK:
+{research}
+
+DETAILED CHAPTER PLAN:
+{chapterOutline}
+
+CREATE:
+
+1. **BOOK TITLE**: A professional, authority-building title that:
+   - Clearly communicates the value proposition
+   - Appeals to {targetAudience} professional needs
+   - Uses proven non-fiction title formulas for {category}
+   - Positions you as a credible expert
+   - Is memorable and marketable for business audiences
+
+2. **BOOK SUMMARY** (150-200 words): A compelling description that:
+   - Opens with the problem or opportunity this book addresses
+   - Explains the unique approach and methodology
+   - Highlights key benefits and practical outcomes
+   - Establishes author credibility and expertise
+   - Uses professional language appropriate for {targetAudience}
+   - Focuses on ROI, results, and practical application
+   - Ends with a clear value proposition
+
+PROFESSIONAL STANDARDS: Consider what makes {category} titles successful in the business market. Think of titles that would be recommended by professionals, shared in business networks, and seen as credible resources.
+
+FORMAT YOUR RESPONSE EXACTLY AS:
+TITLE: [Your professional title here]
+
+SUMMARY: [Your compelling 150-200 word summary here]
+
+Make this book impossible for {targetAudience} to ignore as a valuable professional resource!`
+    };
+
+    // Utility Functions
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    function countWords(text) {
+        return text.trim() ? text.trim().split(/\s+/).length : 0;
+    }
+
+    function formatPrompt(template, variables) {
+        let formatted = template;
+        Object.entries(variables).forEach(([key, value]) => {
+            const regex = new RegExp(`{${key}}`, 'g');
+            formatted = formatted.replace(regex, value || '');
+        });
+        return formatted;
+    }
+
+    function sanitizeFilename(filename) {
+        return filename.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    }
+
+    // Auto-save with debouncing
+    const autoSave = debounce(() => {
+        collectBookData();
+        saveToLocalStorage();
+    }, CONFIG.AUTO_SAVE_DELAY);
+
+    function collectBookData() {
+        bookData.category = document.getElementById('category')?.value || bookData.category;
+        bookData.targetAudience = document.getElementById('target-audience')?.value || bookData.targetAudience;
+        bookData.topic = document.getElementById('topic')?.value || bookData.topic;
+        bookData.approach = document.getElementById('approach')?.value || bookData.approach;
+        bookData.numChapters = parseInt(document.getElementById('num-chapters')?.value || bookData.numChapters);
+        bookData.targetWordCount = parseInt(document.getElementById('target-word-count')?.value || bookData.targetWordCount);
+        bookData.research = document.getElementById('research-content')?.value || bookData.research;
+        bookData.chapterOutline = document.getElementById('chapters-content')?.value || bookData.chapterOutline;
+        bookData.lastSaved = new Date().toISOString();
+    }
+
+    function saveToLocalStorage() {
+        localStorage.setItem('bookforge_current', JSON.stringify(bookData));
+        localStorage.setItem('bookforge_settings', JSON.stringify(aiSettings));
+    }
+
+    function loadFromLocalStorage() {
+        const saved = localStorage.getItem('bookforge_current');
+        if (saved) {
+            try {
+                const loaded = JSON.parse(saved);
+                Object.assign(bookData, loaded);
+                populateFields();
+            } catch (e) {
+                console.error('Error loading saved data:', e);
+            }
+        }
+
+        const savedSettings = localStorage.getItem('bookforge_settings');
+        if (savedSettings) {
+            try {
+                const loaded = JSON.parse(savedSettings);
+                Object.assign(aiSettings, loaded);
+            } catch (e) {
+                console.error('Error loading settings:', e);
+            }
+        }
+
+        const savedTheme = localStorage.getItem('bookforge_theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        }
+    }
+
+    function populateFields() {
+        const fields = [
+            'category', 'target-audience', 'topic', 'approach', 
+            'num-chapters', 'target-word-count', 'research-content', 'chapters-content'
+        ];
+        
+        fields.forEach(fieldId => {
+            const element = document.getElementById(fieldId);
+            const key = fieldId.replace('-', '').replace('content', '').replace('numchapters', 'numChapters').replace('targetwordcount', 'targetWordCount').replace('targetaudience', 'targetAudience').replace('chapteroutline', 'chapterOutline');
+            const mappedKey = fieldId === 'research-content' ? 'research' : 
+                            fieldId === 'chapters-content' ? 'chapterOutline' :
+                            fieldId === 'num-chapters' ? 'numChapters' :
+                            fieldId === 'target-word-count' ? 'targetWordCount' :
+                            fieldId === 'target-audience' ? 'targetAudience' : key;
+            
+            if (element && bookData[mappedKey]) {
+                element.value = bookData[mappedKey];
+            }
+        });
+        
+        updateAllWordCounts();
+        updateNavProgress();
+    }
+
+    // Navigation & Steps
+    function showStep(stepName) {
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        
+        const step = document.getElementById(stepName);
+        const navItem = document.getElementById(`nav-${stepName}`);
+        
+        if (step) step.classList.add('active');
+        if (navItem) navItem.classList.add('active');
+        
+        bookData.currentStep = stepName;
+        autoSave();
+        
+        if (stepName === 'writing') {
+            setupWritingInterface();
+        } else if (stepName === 'export') {
+            updateExportSummary();
+        }
+        
+        updateNavProgress();
+    }
+
+    function updateNavProgress() {
+        const steps = ['setup', 'research', 'chapters', 'writing', 'export'];
+        const currentIndex = steps.indexOf(bookData.currentStep);
+        const progress = ((currentIndex + 1) / steps.length) * 100;
+        
+        const progressElement = document.getElementById('nav-progress');
+        if (progressElement) {
+            progressElement.style.width = `${progress}%`;
+        }
+    }
+
+    // Theme Management
+    function changeTheme() {
+        const selectedTheme = document.getElementById('theme-select').value;
+        setTheme(selectedTheme);
+    }
+
+    function setTheme(theme) {
+        currentTheme = theme;
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('bookforge_theme', theme);
+        
+        const selector = document.getElementById('theme-select');
+        if (selector) selector.value = theme;
+    }
+
+    // Setup Functions
+    function updateSetupFields() {
+        const category = document.getElementById('category').value;
+        const audience = document.getElementById('target-audience').value;
+        const topic = document.getElementById('topic').value.trim();
+        const approach = document.getElementById('approach').value.trim();
+        
+        const nextBtn = document.getElementById('setup-next');
+        if (nextBtn) {
+            nextBtn.style.display = (category && audience && topic && approach) ? 'inline-flex' : 'none';
+        }
+        
+        autoSave();
+    }
+
+    function generateRandomIdea() {
+        const category = document.getElementById('category').value;
+        const audience = document.getElementById('target-audience').value;
+        
+        if (!category || !audience) {
+            showAlert('Please select a category and target audience first.');
+            return;
+        }
+        
+        if (isGenerating) return;
+        
+        showLoading('Generating book idea...');
+        
+        const prompt = formatPrompt(defaultPrompts.randomIdea, {
+            category: category,
+            targetAudience: audience
+        });
+        
+        callAI(prompt, 'Generate a professional book concept')
+            .then(response => {
+                parseRandomIdea(response);
+                hideLoading();
+            })
+            .catch(error => {
+                hideLoading();
+                showAlert('Error generating idea: ' + error.message);
+            });
+    }
+
+    function parseRandomIdea(response) {
+        const lines = response.split('\n');
+        let topic = '', approach = '', chapters = 12;
+        
+        lines.forEach(line => {
+            if (line.startsWith('TOPIC:')) {
+                topic = line.replace('TOPIC:', '').trim();
+            } else if (line.startsWith('APPROACH:')) {
+                approach = line.replace('APPROACH:', '').trim();
+            } else if (line.startsWith('CHAPTERS:')) {
+                chapters = parseInt(line.replace('CHAPTERS:', '').trim()) || 12;
+            }
+        });
+        
+        if (topic) document.getElementById('topic').value = topic;
+        if (approach) document.getElementById('approach').value = approach;
+        if (chapters) document.getElementById('num-chapters').value = chapters;
+        
+        updateSetupFields();
+    }
+
+    // Research Functions
+    function generateResearch() {
+        if (!validateSetup()) return;
+        if (isGenerating) return;
+        
+        showLoading('Generating research framework...');
+        
+        const categoryReqs = categoryRequirements[bookData.category] || { requirements: '', approach: '' };
+        const prompt = formatPrompt(defaultPrompts.research, {
+            category: bookData.category,
+            targetAudience: bookData.targetAudience,
+            topic: bookData.topic,
+            approach: bookData.approach,
+            numChapters: bookData.numChapters,
+            categoryRequirements: categoryReqs.requirements + ' | ' + categoryReqs.approach
+        });
+        
+        callAI(prompt, 'Generate comprehensive research framework')
+            .then(response => {
+                document.getElementById('research-content').value = response;
+                updateResearchContent();
+                hideLoading();
+            })
+            .catch(error => {
+                hideLoading();
+                showAlert('Error generating research: ' + error.message);
+            });
+    }
+
+    function updateResearchContent() {
+        const content = document.getElementById('research-content').value;
+        bookData.research = content;
+        
+        const wordCount = countWords(content);
+        const wordCountEl = document.getElementById('research-word-count');
+        if (wordCountEl) wordCountEl.textContent = `${wordCount} words`;
+        
+        const nextBtn = document.getElementById('research-next');
+        if (nextBtn) {
+            nextBtn.style.display = content.trim() ? 'inline-flex' : 'none';
+        }
+        
+        autoSave();
+    }
+
+    // Chapter Functions
+    function generateChapterOutline() {
+        if (!bookData.research.trim()) {
+            showAlert('Please complete the research framework first.');
+            return;
+        }
+        if (isGenerating) return;
+        
+        showLoading('Generating chapter structure...');
+        
+        const prompt = formatPrompt(defaultPrompts.chapters, {
+            research: bookData.research,
+            category: bookData.category,
+            targetAudience: bookData.targetAudience,
+            numChapters: bookData.numChapters,
+            targetWordCount: bookData.targetWordCount
+        });
+        
+        callAI(prompt, 'Generate detailed chapter structure')
+            .then(response => {
+                document.getElementById('chapters-content').value = response;
+                updateChaptersContent();
+                hideLoading();
+            })
+            .catch(error => {
+                hideLoading();
+                showAlert('Error generating chapters: ' + error.message);
+            });
+    }
+
+    function updateChaptersContent() {
+        const content = document.getElementById('chapters-content').value;
+        bookData.chapterOutline = content;
+        
+        const wordCount = countWords(content);
+        const wordCountEl = document.getElementById('chapters-word-count');
+        if (wordCountEl) wordCountEl.textContent = `${wordCount} words`;
+        
+        const nextBtn = document.getElementById('chapters-next');
+        if (nextBtn) {
+            nextBtn.style.display = content.trim() ? 'inline-flex' : 'none';
+        }
+        
+        autoSave();
+    }
+
+    // Writing Functions
+    function setupWritingInterface() {
+        const container = document.getElementById('chapters-container');
+        container.innerHTML = '';
+        
+        bookData.chapters = Array(bookData.numChapters).fill(null).map((_, i) => bookData.chapters[i] || '');
+        
+        for (let i = 1; i <= bookData.numChapters; i++) {
+            const chapterDiv = document.createElement('div');
+            chapterDiv.className = 'chapter-item';
+            chapterDiv.innerHTML = `
+                <div class="chapter-header">
+                    <div class="chapter-info">
+                        <input type="checkbox" id="chapter-${i}-checkbox" onchange="updateGenerateSelectedButton()" style="margin-right: var(--spacing-sm);">
+                        <h4 class="chapter-title">Chapter ${i}</h4>
+                        <div class="word-count-display" id="chapter-${i}-word-count">0 words</div>
+                    </div>
+                    <div class="chapter-actions">
+                        <button class="btn btn-primary btn-sm" onclick="generateSingleChapter(${i})">
+                            Generate
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="showEditChapterModal(${i})">
+                            Edit
+                        </button>
+                    </div>
+                    <button class="collapse-btn" onclick="toggleChapterCollapse(${i})">
+                        <i class="fas fa-angle-down"></i>
+                    </button>
+                </div>
+                <div class="chapter-content" id="chapter-${i}-content">
+                    <div class="textarea-container">
+                        <textarea 
+                            id="chapter-${i}-textarea" 
+                            placeholder="Chapter content will appear here or write directly..." 
+                            rows="15"
+                            oninput="updateChapterContent(${i})"
+                        ></textarea>
+                        <div class="word-count" id="chapter-${i}-textarea-count">0 words</div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(chapterDiv);
+        }
+        
+        // Populate existing content
+        for (let i = 1; i <= bookData.numChapters; i++) {
+            if (bookData.chapters[i - 1]) {
+                document.getElementById(`chapter-${i}-textarea`).value = bookData.chapters[i - 1];
+                updateChapterContent(i);
+            }
+        }
+        
+        updateWritingStats();
+    }
+
+    function toggleChapterCollapse(chapterNum) {
+        const content = document.getElementById(`chapter-${chapterNum}-content`);
+        const btn = content.parentElement.querySelector('.collapse-btn i');
+        
+        content.classList.toggle('collapsed');
+        
+        if (content.classList.contains('collapsed')) {
+            btn.className = 'fas fa-angle-right';
+        } else {
+            btn.className = 'fas fa-angle-down';
+        }
+    }
+
+    function toggleAllChapters() {
+        const firstChapter = document.getElementById('chapter-1-content');
+        const shouldCollapse = !firstChapter.classList.contains('collapsed');
+        
+        for (let i = 1; i <= bookData.numChapters; i++) {
+            const content = document.getElementById(`chapter-${i}-content`);
+            const btn = content.parentElement.querySelector('.collapse-btn i');
+            
+            if (shouldCollapse) {
+                content.classList.add('collapsed');
+                btn.className = 'fas fa-angle-right';
+            } else {
+                content.classList.remove('collapsed');
+                btn.className = 'fas fa-angle-down';
+            }
+        }
+    }
+
+    function updateChapterContent(chapterNum) {
+        const textarea = document.getElementById(`chapter-${chapterNum}-textarea`);
+        const content = textarea.value;
+        
+        bookData.chapters[chapterNum - 1] = content;
+        
+        const wordCount = countWords(content);
+        const countEl = document.getElementById(`chapter-${chapterNum}-word-count`);
+        const textareaCountEl = document.getElementById(`chapter-${chapterNum}-textarea-count`);
+        
+        if (countEl) countEl.textContent = `${wordCount} words`;
+        if (textareaCountEl) textareaCountEl.textContent = `${wordCount} words`;
+        
+        updateWritingStats();
+        autoSave();
+    }
+
+    function updateWritingStats() {
+        let completedChapters = 0;
+        let totalWords = 0;
+        
+        bookData.chapters.forEach(chapter => {
+            const wordCount = countWords(chapter || '');
+            totalWords += wordCount;
+            if (wordCount > 100) completedChapters++;
+        });
+        
+        const estimatedPages = Math.round(totalWords / CONFIG.WORDS_PER_PAGE);
+        const completion = Math.round((completedChapters / bookData.numChapters) * 100);
+        
+        document.getElementById('completed-chapters').textContent = completedChapters;
+        document.getElementById('total-words').textContent = totalWords.toLocaleString();
+        document.getElementById('estimated-pages').textContent = estimatedPages;
+        document.getElementById('completion-percentage').textContent = `${completion}%`;
+    }
+
+    function updateGenerateSelectedButton() {
+        const checkboxes = document.querySelectorAll('[id^="chapter-"][id$="-checkbox"]:checked');
+        const btn = document.getElementById('generate-selected-btn');
+        
+        if (btn) {
+            btn.disabled = checkboxes.length === 0;
+            btn.innerHTML = `<i class="fas fa-check-square"></i> Generate Selected (${checkboxes.length})`;
+        }
+    }
+
+    function generateAllChapters() {
+        if (!bookData.chapterOutline.trim()) {
+            showAlert('Please complete the chapter structure first.');
+            return;
+        }
+        
+        if (isGenerating) return;
+        
+        const confirmMsg = 'This will generate all chapters and may take several minutes. Continue?';
+        if (!confirm(confirmMsg)) return;
+        
+        generateChaptersSequentially(1, bookData.numChapters);
+    }
+
+    function generateSelectedChapters() {
+        const checkboxes = document.querySelectorAll('[id^="chapter-"][id$="-checkbox"]:checked');
+        if (checkboxes.length === 0) return;
+        
+        if (isGenerating) return;
+        
+        const chapterNumbers = Array.from(checkboxes).map(cb => {
+            return parseInt(cb.id.match(/chapter-(\d+)-checkbox/)[1]);
+        });
+        
+        generateChaptersSequentially(chapterNumbers);
+    }
+
+    function generateChaptersSequentially(chapters) {
+        if (typeof chapters === 'number') {
+            // Generate range from 1 to chapters
+            chapters = Array.from({length: chapters}, (_, i) => i + 1);
+        }
+        
+        if (chapters.length === 0) return;
+        
+        showLoading(`Generating chapter ${chapters[0]} of ${chapters.length} selected chapters...`);
+        
+        generateChapterRecursive(chapters, 0);
+    }
+
+    function generateChapterRecursive(chapters, index) {
+        if (index >= chapters.length) {
+            hideLoading();
+            showAlert('All selected chapters generated successfully!');
+            return;
+        }
+        
+        const chapterNum = chapters[index];
+        updateLoading(`Generating chapter ${chapterNum}... (${index + 1}/${chapters.length})`);
+        
+        generateSingleChapterContent(chapterNum)
+            .then(() => {
+                setTimeout(() => {
+                    generateChapterRecursive(chapters, index + 1);
+                }, 1000); // Brief pause between chapters
+            })
+            .catch(error => {
+                hideLoading();
+                showAlert(`Error generating chapter ${chapterNum}: ${error.message}`);
+            });
+    }
+
+    function generateSingleChapter(chapterNum) {
+        if (isGenerating) return;
+        
+        generateSingleChapterContent(chapterNum)
+            .then(() => {
+                showAlert(`Chapter ${chapterNum} generated successfully!`);
+            })
+            .catch(error => {
+                showAlert(`Error generating chapter ${chapterNum}: ${error.message}`);
+            });
+    }
+
+    function generateSingleChapterContent(chapterNum) {
+        return new Promise((resolve, reject) => {
+            showLoading(`Generating Chapter ${chapterNum}...`);
+            
+            const previousChapterEnding = chapterNum > 1 && bookData.chapters[chapterNum - 2] 
+                ? bookData.chapters[chapterNum - 2].slice(-500) 
+                : '';
+            
+            const categoryReqs = categoryRequirements[bookData.category] || { requirements: '', approach: '' };
+            
+            const prompt = formatPrompt(defaultPrompts.writing, {
+                chapterNum: chapterNum,
+                category: bookData.category,
+                contextInfo: `Research: ${bookData.research.slice(0, 1000)}...\nChapter Structure: ${bookData.chapterOutline.slice(0, 1000)}...`,
+                chapterOutline: extractChapterOutline(chapterNum),
+                previousChapterEnding: previousChapterEnding,
+                targetWordCount: bookData.targetWordCount,
+                targetAudience: bookData.targetAudience,
+                approach: bookData.approach,
+                categorySpecificElements: categoryReqs.requirements
+            });
+            
+            callAI(prompt, `Write Chapter ${chapterNum}`)
+                .then(response => {
+                    const textarea = document.getElementById(`chapter-${chapterNum}-textarea`);
+                    if (textarea) {
+                        textarea.value = response;
+                        updateChapterContent(chapterNum);
+                    }
+                    hideLoading();
+                    resolve();
+                })
+                .catch(error => {
+                    hideLoading();
+                    reject(error);
+                });
+        });
+    }
+
+    function extractChapterOutline(chapterNum) {
+        const outline = bookData.chapterOutline;
+        const chapterPattern = new RegExp(`Chapter ${chapterNum}[\\s\\S]*?(?=Chapter ${chapterNum + 1}|$)`, 'i');
+        const match = outline.match(chapterPattern);
+        return match ? match[0] : `Chapter ${chapterNum} outline not found in chapter structure.`;
+    }
+
+    function generateBookTitle() {
+        if (!bookData.research.trim() || !bookData.chapterOutline.trim()) {
+            showAlert('Please complete research and chapter structure first.');
+            return;
+        }
+        
+        if (isGenerating) return;
+        
+        showLoading('Generating book title and summary...');
+        
+        const prompt = formatPrompt(defaultPrompts.bookTitle, {
+            category: bookData.category,
+            targetAudience: bookData.targetAudience,
+            topic: bookData.topic,
+            approach: bookData.approach,
+            research: bookData.research.slice(0, 2000),
+            chapterOutline: bookData.chapterOutline.slice(0, 2000)
+        });
+        
+        callAI(prompt, 'Generate professional book title and summary')
+            .then(response => {
+                parseBookTitle(response);
+                hideLoading();
+            })
+            .catch(error => {
+                hideLoading();
+                showAlert('Error generating title: ' + error.message);
+            });
+    }
+
+    function parseBookTitle(response) {
+        const lines = response.split('\n');
+        let title = '';
+        let summary = '';
+        let inSummary = false;
+        
+        lines.forEach(line => {
+            if (line.startsWith('TITLE:')) {
+                title = line.replace('TITLE:', '').trim();
+            } else if (line.startsWith('SUMMARY:')) {
+                summary = line.replace('SUMMARY:', '').trim();
+                inSummary = true;
+            } else if (inSummary && line.trim()) {
+                summary += ' ' + line.trim();
+            }
+        });
+        
+        if (title) {
+            bookData.title = title;
+            showAlert(`Book title generated: "${title}"`);
+        }
+        
+        if (summary) {
+            bookData.summary = summary;
+        }
+        
+        autoSave();
+    }
+
+    // Export Functions
+    function updateExportSummary() {
+        const totalWords = bookData.chapters.reduce((sum, chapter) => sum + countWords(chapter || ''), 0);
+        const estimatedPages = Math.round(totalWords / CONFIG.WORDS_PER_PAGE);
+        
+        document.getElementById('export-chapters').textContent = bookData.numChapters;
+        document.getElementById('export-words').textContent = totalWords.toLocaleString();
+        document.getElementById('export-pages').textContent = estimatedPages;
+        document.getElementById('export-category').textContent = bookData.category || '-';
+    }
+
+    function downloadBook(format) {
+        const completedChapters = bookData.chapters.filter(c => countWords(c || '') > 100);
+        if (completedChapters.length === 0) {
+            showAlert('No completed chapters to export. Please write some content first.');
+            return;
+        }
+        
+        const title = bookData.title || bookData.topic || 'BookForge Export';
+        let content = '';
+        
+        switch(format) {
+            case 'txt':
+                content = generateTxtContent(title);
+                downloadFile(content, `${sanitizeFilename(title)}.txt`, 'text/plain');
+                break;
+            case 'html':
+                content = generateHtmlContent(title);
+                downloadFile(content, `${sanitizeFilename(title)}.html`, 'text/html');
+                break;
+            case 'md':
+                content = generateMarkdownContent(title);
+                downloadFile(content, `${sanitizeFilename(title)}.md`, 'text/markdown');
+                break;
+        }
+    }
+
+    function generateTxtContent(title) {
+        let content = `${title}\n${'='.repeat(title.length)}\n\n`;
+        content += `Category: ${bookData.category}\n`;
+        content += `Target Audience: ${bookData.targetAudience}\n`;
+        content += `Approach: ${bookData.approach}\n\n`;
+        
+        if (bookData.summary) {
+            content += `BOOK SUMMARY:\n${bookData.summary}\n\n`;
+        }
+        
+        content += `${'='.repeat(50)}\n\n`;
+        
+        bookData.chapters.forEach((chapter, index) => {
+            if (chapter && countWords(chapter) > 50) {
+                content += `CHAPTER ${index + 1}\n\n`;
+                content += chapter + '\n\n';
+                content += `${'-'.repeat(30)}\n\n`;
+            }
+        });
+        
+        content += `\nGenerated by BookForge\n`;
+        return content;
+    }
+
+    function generateHtmlContent(title) {
+        let content = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+    <style>
+        body { font-family: Georgia, serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; }
+        h1 { color: #1E40AF; border-bottom: 3px solid #1E40AF; padding-bottom: 10px; }
+        h2 { color: #334155; margin-top: 40px; page-break-before: always; }
+        .book-info { background: #F8FAFC; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
+        .book-summary { background: #F1F5F9; padding: 25px; border-left: 4px solid #1E40AF; margin: 30px 0; }
+        .chapter { margin-bottom: 50px; }
+        .footer { text-align: center; margin-top: 60px; font-size: 0.9em; color: #64748B; }
+    </style>
+</head>
+<body>
+    <div class="book-info">
+        <h1>${title}</h1>
+        <p><strong>Category:</strong> ${bookData.category}</p>
+        <p><strong>Target Audience:</strong> ${bookData.targetAudience}</p>
+        <p><strong>Approach:</strong> ${bookData.approach}</p>
+        ${bookData.summary ? `<div class="book-summary">${bookData.summary}</div>` : ''}
+    </div>`;
+        
+        bookData.chapters.forEach((chapter, index) => {
+            if (chapter && countWords(chapter) > 50) {
+                content += `    <div class="chapter">
+        <h2>Chapter ${index + 1}</h2>
+        <div>${chapter.replace(/\n\n/g, '</div><div>').replace(/\n/g, '<br>')}</div>
+    </div>`;
+            }
+        });
+        
+        content += `    <div class="footer">
+        <p>Generated by BookForge</p>
+    </div>
+</body>
+</html>`;
+        return content;
+    }
+
+    function generateMarkdownContent(title) {
+        let content = `# ${title}\n\n`;
+        content += `**Category:** ${bookData.category}  \n`;
+        content += `**Target Audience:** ${bookData.targetAudience}  \n`;
+        content += `**Approach:** ${bookData.approach}\n\n`;
+        
+        if (bookData.summary) {
+            content += `## Book Summary\n\n${bookData.summary}\n\n`;
+        }
+        
+        content += '---\n\n';
+        
+        bookData.chapters.forEach((chapter, index) => {
+            if (chapter && countWords(chapter) > 50) {
+                content += `## Chapter ${index + 1}\n\n`;
+                content += chapter + '\n\n';
+                content += '---\n\n';
+            }
+        });
+        
+        content += `*Generated by BookForge*\n`;
+        return content;
+    }
+
+    function downloadFile(content, filename, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function copyToClipboard() {
+        const completedChapters = bookData.chapters.filter(c => countWords(c || '') > 100);
+        if (completedChapters.length === 0) {
+            showAlert('No content to copy. Please complete some chapters first.');
+            return;
+        }
+        
+        const title = bookData.title || bookData.topic || 'BookForge Export';
+        const content = generateTxtContent(title);
+        
+        navigator.clipboard.writeText(content).then(() => {
+            showAlert('Book content copied to clipboard!');
+        }).catch(err => {
+            showAlert('Failed to copy to clipboard. Please try downloading instead.');
+        });
+    }
+
+    // Project Management
+    function newProject() {
+        if (hasUnsavedChanges()) {
+            if (!confirm('Starting a new project will lose unsaved changes. Continue?')) {
+                return;
+            }
+        }
+        
+        bookData = {
+            id: 'current',
+            title: '',
+            category: '',
+            targetAudience: '',
+            topic: '',
+            approach: '',
+            numChapters: 12,
+            targetWordCount: 2000,
+            research: '',
+            chapterOutline: '',
+            chapters: [],
+            currentStep: 'setup',
+            createdAt: new Date().toISOString(),
+            lastSaved: new Date().toISOString()
+        };
+        
+        // Reset UI
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            if (el.type !== 'checkbox') el.value = '';
+        });
+        
+        showStep('setup');
+        updateAllWordCounts();
+        saveToLocalStorage();
+        
+        showAlert('New project created!');
+    }
+
+    function saveProject() {
+        collectBookData();
+        
+        if (!bookData.topic.trim()) {
+            showAlert('Please add a topic before saving the project.');
+            return;
+        }
+        
+        const projects = JSON.parse(localStorage.getItem('bookforge_projects') || '{}');
+        
+        if (Object.keys(projects).length >= CONFIG.MAX_PROJECTS && bookData.id === 'current') {
+            showAlert(`Maximum of ${CONFIG.MAX_PROJECTS} projects allowed. Please delete some projects first.`);
+            return;
+        }
+        
+        const projectId = bookData.id === 'current' ? `project_${Date.now()}` : bookData.id;
+        
+        projects[projectId] = {
+            ...bookData,
+            id: projectId,
+            lastSaved: new Date().toISOString()
+        };
+        
+        localStorage.setItem('bookforge_projects', JSON.stringify(projects));
+        
+        bookData.id = projectId;
+        saveToLocalStorage();
+        
+        showAlert('Project saved successfully!');
+    }
+
+    function switchProject() {
+        const selector = document.getElementById('project-select');
+        const projectId = selector.value;
+        
+        if (projectId === 'current') return;
+        
+        const projects = JSON.parse(localStorage.getItem('bookforge_projects') || '{}');
+        const project = projects[projectId];
+        
+        if (project) {
+            Object.assign(bookData, project);
+            populateFields();
+            showStep(bookData.currentStep);
+            showAlert('Project loaded successfully!');
+        }
+    }
+
+    function hasUnsavedChanges() {
+        // Simple check for unsaved changes
+        return bookData.topic.trim() || bookData.research.trim() || bookData.chapterOutline.trim() || 
+               bookData.chapters.some(c => c && c.trim());
+    }
+
+    // AI Integration
+    async function callAI(prompt, systemMessage = '', model = null) {
+        if (!aiSettings.apiKey) {
+            throw new Error('Please configure your API key in settings first.');
+        }
+        
+        const useModel = model || aiSettings.model;
+        
+        const response = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                model: "claude-sonnet-4-20250514",
+                max_tokens: aiSettings.maxTokens,
+                messages: [
+                    { role: "user", content: prompt }
+                ]
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        return data.content[0].text;
+    }
+
+    function validateSetup() {
+        collectBookData();
+        
+        if (!bookData.category || !bookData.targetAudience || !bookData.topic.trim() || !bookData.approach.trim()) {
+            showAlert('Please complete all setup fields before proceeding.');
+            return false;
+        }
+        
+        return true;
+    }
+
+    // Modal Functions
+    function showSettings() {
+        document.getElementById('settings-modal').classList.add('active');
+        
+        // Populate settings fields
+        document.getElementById('api-provider').value = aiSettings.provider;
+        document.getElementById('api-key').value = aiSettings.apiKey;
+        document.getElementById('model-select').value = aiSettings.model;
+    }
+
+    function closeSettings() {
+        document.getElementById('settings-modal').classList.remove('active');
+    }
+
+    function saveSettings() {
+        aiSettings.provider = document.getElementById('api-provider').value;
+        aiSettings.apiKey = document.getElementById('api-key').value;
+        aiSettings.model = document.getElementById('model-select').value;
+        
+        saveToLocalStorage();
+        closeSettings();
+        showAlert('Settings saved successfully!');
+    }
+
+    function showEditModal(contentType) {
+        document.getElementById('edit-modal').classList.add('active');
+        
+        // Store the content type for later use
+        document.getElementById('edit-modal').dataset.contentType = contentType;
+    }
+
+    function closeEditModal() {
+        document.getElementById('edit-modal').classList.remove('active');
+    }
+
+    function runImprovement() {
+        const contentType = document.getElementById('edit-modal').dataset.contentType;
+        const editMode = document.getElementById('edit-mode').value;
+        const feedbackLoops = parseInt(document.getElementById('feedback-loops').value);
+        const manualFeedback = document.getElementById('manual-feedback').value;
+        
+        closeEditModal();
+        
+        if (editMode === 'manual' && !manualFeedback.trim()) {
+            showAlert('Please provide feedback for manual improvement mode.');
+            return;
+        }
+        
+        // Run improvement based on content type
+        if (contentType === 'research') {
+            runResearchImprovement(editMode, feedbackLoops, manualFeedback);
+        } else if (contentType === 'chapters') {
+            runChaptersImprovement(editMode, feedbackLoops, manualFeedback);
+        }
+    }
+
+    async function runResearchImprovement(editMode, feedbackLoops, manualFeedback) {
+        if (!bookData.research.trim()) {
+            showAlert('No research content to improve. Please generate research first.');
+            return;
+        }
+
+        showLoading(`Improving research with ${editMode} mode...`);
+
+        try {
+            let improvedContent = bookData.research;
+
+            for (let i = 0; i < feedbackLoops; i++) {
+                if (editMode === 'manual') {
+                    improvedContent = await runManualImprovement('research', improvedContent, manualFeedback);
+                } else {
+                    improvedContent = await runAIImprovement('research', improvedContent);
+                }
+            }
+
+            document.getElementById('research-content').value = improvedContent;
+            updateResearchContent();
+            hideLoading();
+            showAlert(`Research improved successfully with ${feedbackLoops} cycle(s).`);
+
+        } catch (error) {
+            hideLoading();
+            showAlert('Error improving research: ' + error.message);
+        }
+    }
+
+    async function runChaptersImprovement(editMode, feedbackLoops, manualFeedback) {
+        if (!bookData.chapterOutline.trim()) {
+            showAlert('No chapter structure to improve. Please generate chapters first.');
+            return;
+        }
+
+        showLoading(`Improving chapter structure with ${editMode} mode...`);
+
+        try {
+            let improvedContent = bookData.chapterOutline;
+
+            for (let i = 0; i < feedbackLoops; i++) {
+                if (editMode === 'manual') {
+                    improvedContent = await runManualImprovement('chapters', improvedContent, manualFeedback);
+                } else {
+                    improvedContent = await runAIImprovement('chapters', improvedContent);
+                }
+            }
+
+            document.getElementById('chapters-content').value = improvedContent;
+            updateChaptersContent();
+            hideLoading();
+            showAlert(`Chapter structure improved successfully with ${feedbackLoops} cycle(s).`);
+
+        } catch (error) {
+            hideLoading();
+            showAlert('Error improving chapters: ' + error.message);
+        }
+    }
+
+    async function runManualImprovement(contentType, content, feedback) {
+        const prompt = `You are an expert non-fiction author and professional editor. Improve the ${contentType} based on this specific feedback:
+
+FEEDBACK: ${feedback}
+
+ORIGINAL CONTENT:
+${content}
+
+BOOK CONTEXT:
+- Category: ${bookData.category}
+- Target Audience: ${bookData.targetAudience}
+- Topic: ${bookData.topic}
+- Approach: ${bookData.approach}
+
+Provide an improved version that addresses the feedback while maintaining professional standards and authority. Keep the same structure but enhance quality, clarity, and value.`;
+
+        return await callAI(prompt, 'Improve content based on specific feedback');
+    }
+
+    async function runAIImprovement(contentType, content) {
+        const prompt = `You are a professional editor analyzing ${contentType} for a ${bookData.category} book targeting ${bookData.targetAudience}. 
+
+CONTENT TO ANALYZE:
+${content}
+
+Provide detailed analysis and then an improved version that:
+1. Enhances professional authority and credibility
+2. Improves clarity and structure
+3. Strengthens practical value for readers
+4. Maintains evidence-based approach
+5. Better serves the target audience
+
+First provide brief analysis, then the complete improved version.`;
+
+        const response = await callAI(prompt, 'Analyze and improve content');
+        
+        // Extract improved version (assuming it comes after analysis)
+        const sections = response.split(/IMPROVED VERSION|ENHANCED VERSION/i);
+        return sections.length > 1 ? sections[1].trim() : response;
+    }
+
+    // Utility and Helper Functions
+    function showLoading(message) {
+        isGenerating = true;
+        document.getElementById('loading-text').textContent = message;
+        document.getElementById('loading-overlay').classList.add('active');
+    }
+
+    function updateLoading(message) {
+        document.getElementById('loading-text').textContent = message;
+    }
+
+    function hideLoading() {
+        isGenerating = false;
+        document.getElementById('loading-overlay').classList.remove('active');
+    }
+
+    function showAlert(message) {
+        // Simple alert for now - could be enhanced with custom modal
+        alert(message);
+    }
+
+    function showHelp() {
+        const helpContent = `
+BookForge - Professional Non-Fiction Book Generator
+
+GETTING STARTED:
+1. Configure your AI settings (API key required)
+2. Set up your book parameters (category, audience, topic)
+3. Generate research framework for credibility
+4. Create detailed chapter structure
+5. Write or generate individual chapters
+6. Export in multiple formats
+
+FEATURES:
+- Research-backed content generation
+- Professional category-specific templates
+- Chapter-by-chapter writing interface
+- Multiple export formats (TXT, HTML, Markdown)
+- Project management and saving
+- AI-powered content improvement
+
+TIPS:
+- Complete each step before moving to the next
+- Use the edit & improve feature to refine content
+- Generate ideas if you need inspiration
+- Save your projects regularly
+- Export early and often
+
+For more help, visit our documentation or contact support.
+        `;
+        
+        alert(helpContent);
+    }
+
+    function cancelGeneration() {
+        isGenerating = false;
+        hideLoading();
+        showAlert('Generation cancelled.');
+    }
+
+    function estimateCost(contentType) {
+        const estimates = {
+            research: { tokens: 2000, cost: 0.02 },
+            chapters: { tokens: 3000, cost: 0.03 },
+            writing: { tokens: 4000 * bookData.numChapters, cost: 0.04 * bookData.numChapters }
+        };
+        
+        const estimate = estimates[contentType] || { tokens: 1000, cost: 0.01 };
+        showAlert(`Estimated cost for ${contentType}: ~${estimate.tokens} tokens (~${estimate.cost.toFixed(2)})`);
+    }
+
+    function updateAllWordCounts() {
+        updateResearchContent();
+        updateChaptersContent();
+        updateWritingStats();
+    }
+
+    function showProjectManager() {
+        // Placeholder for project management modal
+        showAlert('Project management feature coming soon!');
+    }
+
+    function updateProviderFields() {
+        const provider = document.getElementById('api-provider').value;
+        const modelSelect = document.getElementById('model-select');
+        
+        modelSelect.innerHTML = '';
+        
+        if (provider === 'openrouter') {
+            modelSelect.innerHTML = `
+                <option value="openai/gpt-4o">GPT-4 Omni</option>
+                <option value="openai/gpt-4o-mini">GPT-4 Omni Mini</option>
+                <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
+                <option value="anthropic/claude-3-haiku">Claude 3 Haiku</option>
+            `;
+        } else {
+            modelSelect.innerHTML = `
+                <option value="gpt-4">GPT-4</option>
+                <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+            `;
+        }
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('BookForge v' + CONFIG.VERSION + ' - Initializing...');
+        
+        // Load saved data
+        loadFromLocalStorage();
+        
+        // Set up event listeners for edit mode
+        const editModeSelect = document.getElementById('edit-mode');
+        if (editModeSelect) {
+            editModeSelect.addEventListener('change', function() {
+                const manualGroup = document.getElementById('manual-feedback-group');
+                if (this.value === 'manual') {
+                    manualGroup.style.display = 'block';
+                } else {
+                    manualGroup.style.display = 'none';
+                }
+            });
+        }
+        
+        // Set up auto-save for all text inputs
+        document.addEventListener('input', function(e) {
+            if (e.target.matches('input, select, textarea')) {
+                autoSave();
+            }
+        });
+        
+        // Set up keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + S for save
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveProject();
+            }
+            
+            // Escape to cancel generation
+            if (e.key === 'Escape' && isGenerating) {
+                cancelGeneration();
+            }
+        });
+        
+        // Initialize UI state
+        updateAllWordCounts();
+        updateNavProgress();
+        showStep(bookData.currentStep || 'setup');
+        
+        console.log('BookForge initialized successfully!');
+    });
+
+    // Export global functions for HTML onclick handlers
+    window.BookForge = {
+        showStep,
+        changeTheme,
+        updateSetupFields,
+        generateRandomIdea,
+        generateResearch,
+        updateResearchContent,
+        generateChapterOutline,
+        updateChaptersContent,
+        setupWritingInterface,
+        toggleChapterCollapse,
+        toggleAllChapters,
+        updateChapterContent,
+        updateGenerateSelectedButton,
+        generateAllChapters,
+        generateSelectedChapters,
+        generateSingleChapter,
+        generateBookTitle,
+        downloadBook,
+        copyToClipboard,
+        newProject,
+        saveProject,
+        switchProject,
+        showSettings,
+        closeSettings,
+        saveSettings,
+        showEditModal,
+        closeEditModal,
+        runImprovement,
+        showHelp,
+        cancelGeneration,
+        estimateCost,
+        showProjectManager,
+        updateProviderFields
+    };
+
+    // Make functions available globally for onclick handlers
+    Object.assign(window, window.BookForge);
+    </script>
 </body>
 </html>

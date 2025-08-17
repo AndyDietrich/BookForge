@@ -4,7 +4,7 @@
 
 Generate authoritative, research-backed non-fiction books with advanced AI technology. Create business guides, self-help books, educational content, and expert knowledge books with comprehensive writing platform.
 
-**Live Website:** not yet live
+**Live Website:** [bookforge.ink](https://bookforge.ink)
 
 ---
 
@@ -134,6 +134,9 @@ bookforge-ai/
 - **No External Servers**: Content never leaves your device
 - **Secure API Keys**: Stored locally, never transmitted to our servers
 - **Direct AI Communication**: Direct connection to your chosen AI provider
+
+## **Analytics
+- Google Analytics for basic website traffic monitoring
 
 ---
 
