@@ -337,7 +337,7 @@
 /* Reset & Base Styles */
 * {
     margin: 0;
-    padding: 0px;
+    padding: 5px;
     box-sizing: border-box;
 }
 
@@ -2209,11 +2209,15 @@ textarea {
     height: 100%;
     background: var(--blur-dark);
     z-index: 3000;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.loading-overlay.active {
+    display: flex;
 }
 
 .loading-content {

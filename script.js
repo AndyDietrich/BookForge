@@ -42,9 +42,9 @@ let generationAbortController = null;
 
 // AI Settings with Enhanced Configuration
 let aiSettings = {
-    provider: 'claude', // Default to Claude via API
+    provider: 'openrouter', // Default to OpenRouter (CORS-friendly)
     apiKey: '',
-    model: 'claude-sonnet-4-20250514',
+    model: 'anthropic/claude-3.5-sonnet',
     temperature: 0.7,
     maxTokens: 4000,
     customPrompts: {}
@@ -1882,22 +1882,59 @@ async function callAI(prompt, systemMessage = '', model = null) {
         throw new Error('Prompt is required');
     }
     
+    if (!aiSettings.apiKey) {
+        throw new Error('API key is required. Please configure your settings.');
+    }
+    
     // Create abort controller for this request
     generationAbortController = new AbortController();
     
+    const currentModel = model || aiSettings.model;
+    const provider = aiSettings.provider;
+    
+    let apiUrl, headers, requestBody;
+    
+    if (provider === 'openrouter') {
+        apiUrl = 'https://openrouter.ai/api/v1/chat/completions';
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${aiSettings.apiKey}`,
+            'HTTP-Referer': window.location.origin,
+            'X-Title': 'BookForge'
+        };
+        requestBody = {
+            model: currentModel,
+            messages: [
+                ...(systemMessage ? [{ role: 'system', content: systemMessage }] : []),
+                { role: 'user', content: prompt }
+            ],
+            temperature: aiSettings.temperature || 0.7,
+            max_tokens: aiSettings.maxTokens || 4000
+        };
+    } else if (provider === 'openai') {
+        apiUrl = 'https://api.openai.com/v1/chat/completions';
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${aiSettings.apiKey}`
+        };
+        requestBody = {
+            model: currentModel,
+            messages: [
+                ...(systemMessage ? [{ role: 'system', content: systemMessage }] : []),
+                { role: 'user', content: prompt }
+            ],
+            temperature: aiSettings.temperature || 0.7,
+            max_tokens: aiSettings.maxTokens || 4000
+        };
+    } else {
+        throw new Error('Unsupported AI provider. Please use OpenRouter or OpenAI.');
+    }
+    
     try {
-        const response = await fetch("https://api.anthropic.com/v1/messages", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                model: model || aiSettings.model || "claude-sonnet-4-20250514",
-                max_tokens: aiSettings.maxTokens || 4000,
-                messages: [
-                    { role: "user", content: prompt }
-                ]
-            }),
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(requestBody),
             signal: generationAbortController.signal
         });
         
@@ -1908,11 +1945,15 @@ async function callAI(prompt, systemMessage = '', model = null) {
         
         const data = await response.json();
         
-        if (!data.content || !data.content[0] || !data.content[0].text) {
-            throw new Error('Invalid response format from AI service');
+        // Handle different response formats
+        if (provider === 'openrouter' || provider === 'openai') {
+            if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+                throw new Error('Invalid response format from AI service');
+            }
+            return data.choices[0].message.content;
         }
         
-        return data.content[0].text;
+        throw new Error('Unexpected response format');
         
     } catch (error) {
         if (error.name === 'AbortError') {
@@ -2371,6 +2412,7 @@ function updateProviderFields() {
             <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
             <option value="anthropic/claude-3-haiku">Claude 3 Haiku</option>
             <option value="meta-llama/llama-3.1-405b-instruct">Llama 3.1 405B</option>
+            <option value="openai/gpt-oss-20b:free">OpenAI GPT-OSS 20B: FREE</option>
         `;
     } else if (provider === 'openai') {
         modelSelect.innerHTML = `

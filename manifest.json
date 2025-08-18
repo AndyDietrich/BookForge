@@ -1,0 +1,31 @@
+{
+  "name": "BookForge",
+  "short_name": "BookForge",
+  "description": "Professional AI-Powered Non-Fiction Book Generator",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E40AF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["productivity", "business", "education"],
+  "lang": "en",
+  "scope": "/",
+  "id": "bookforge"
+}
