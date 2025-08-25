@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(node:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(start index.html)",
+      "Bash(del \"C:\\Users\\dietr\\Documents\\GitHub\\BookForge\\test.html\")",
+      "Bash(rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(echo:*)"
     ],
     "deny": [],
     "ask": []
