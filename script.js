@@ -1017,7 +1017,7 @@ async function runFeedbackLoop(contentType) {
         const feedbackModeEl = document.getElementById(`${contentType}-feedback-mode`);
         
         if (!feedbackLoopsEl || !feedbackModeEl) {
-            console.log(`Feedback elements for ${contentType} not found. Skipping feedback loop.`);
+            // Feedback elements not found, skipping feedback loop
             return;
         }
         
@@ -1191,9 +1191,7 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
     }
 
     try {
-        console.log('Making API request to:', apiUrl);
-        console.log('Request headers:', headers);
-        console.log('Request body:', JSON.stringify(body, null, 2));
+        // API request details logging removed for production
         
         const response = await fetch(apiUrl, {
             method: 'POST',
@@ -1201,7 +1199,7 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
             body: JSON.stringify(body)
         });
         
-        console.log('API response status:', response.status);
+        // Response status logging removed for production
 
         if (!response.ok) {
             let errorMessage = `API Error: ${response.status}`;
@@ -1217,7 +1215,7 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
             // Retry on server errors (5xx) or rate limits (429)
             if ((response.status >= 500 || response.status === 429) && retryCount < maxRetries) {
                 const delay = Math.pow(2, retryCount) * 1000; // Exponential backoff
-                console.log(`Retrying API call after ${delay}ms (attempt ${retryCount + 1}/${maxRetries})`);
+                // API retry logging removed for production
                 await new Promise(resolve => setTimeout(resolve, delay));
                 return await callAI(prompt, systemPrompt, model, retryCount + 1);
             }
@@ -1228,7 +1226,7 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
         let data;
         try {
             const responseText = await response.text();
-            console.log('Raw API response text:', responseText.substring(0, 500) + (responseText.length > 500 ? '...' : ''));
+            // Raw response logging removed for production
             data = JSON.parse(responseText);
         } catch (parseError) {
             console.error('Failed to parse API response as JSON:', parseError);
@@ -1237,7 +1235,7 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
             // Retry on JSON parse errors
             if (retryCount < maxRetries) {
                 const delay = Math.pow(2, retryCount) * 1000;
-                console.log(`Retrying API call due to JSON parse error after ${delay}ms (attempt ${retryCount + 1}/${maxRetries})`);
+                // JSON parse error retry logging removed for production
                 await new Promise(resolve => setTimeout(resolve, delay));
                 return await callAI(prompt, systemPrompt, model, retryCount + 1);
             }
@@ -1249,7 +1247,7 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
         if (!data.choices || !Array.isArray(data.choices) || data.choices.length === 0) {
             if (retryCount < maxRetries) {
                 const delay = Math.pow(2, retryCount) * 1000;
-                console.log(`Retrying API call due to invalid response structure after ${delay}ms (attempt ${retryCount + 1}/${maxRetries})`);
+                // Invalid response retry logging removed for production
                 await new Promise(resolve => setTimeout(resolve, delay));
                 return await callAI(prompt, systemPrompt, model, retryCount + 1);
             }
@@ -1259,7 +1257,7 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
         if (!data.choices[0].message || !data.choices[0].message.content) {
             if (retryCount < maxRetries) {
                 const delay = Math.pow(2, retryCount) * 1000;
-                console.log(`Retrying API call due to missing message content after ${delay}ms (attempt ${retryCount + 1}/${maxRetries})`);
+                // Missing content retry logging removed for production
                 await new Promise(resolve => setTimeout(resolve, delay));
                 return await callAI(prompt, systemPrompt, model, retryCount + 1);
             }
@@ -1267,12 +1265,12 @@ async function callAI(prompt, systemPrompt = "", model = null, retryCount = 0) {
         }
 
         const content = data.choices[0].message.content;
-        console.log('API request successful, content length:', content.length);
+        // Success logging removed for production
         return content;
     } catch (error) {
         if (retryCount < maxRetries && (error.name === 'TypeError' || error.message.includes('fetch'))) {
             const delay = Math.pow(2, retryCount) * 1000;
-            console.log(`Retrying API call due to network error after ${delay}ms (attempt ${retryCount + 1}/${maxRetries})`);
+            // Network error retry logging removed for production
             await new Promise(resolve => setTimeout(resolve, delay));
             return await callAI(prompt, systemPrompt, model, retryCount + 1);
         }
@@ -2100,7 +2098,7 @@ function toggleSectionCollapse(sectionNum) {
     const collapseBtn = document.querySelector(`button[onclick="toggleSectionCollapse(${sectionNum})"]`);
     
     if (!contentField) {
-        console.warn(`Content field not found for section ${sectionNum}. Make sure you're on the Writing tab and sections are initialized.`);
+        console.warn('Content field not found for section. Make sure you are on the Writing tab and sections are initialized.');
         return;
     }
     
@@ -3584,7 +3582,7 @@ async function startOneClickProcess() {
                 
             } catch (error) {
                 outlineRetries++;
-                console.error(`Story bible generation attempt ${outlineRetries} failed:`, error.message);
+                console.error('Story bible generation failed:', error.message);
                 
                 if (outlineRetries >= maxOutlineRetries) {
                     throw new Error(`Failed to generate book blueprint after ${maxOutlineRetries} attempts: ${error.message}`);
@@ -3622,7 +3620,7 @@ async function startOneClickProcess() {
                 
             } catch (error) {
                 sectionOutlineRetries++;
-                console.error(`Section outline generation attempt ${sectionOutlineRetries} failed:`, error.message);
+                console.error('Section outline generation failed:', error.message);
                 
                 if (sectionOutlineRetries >= maxSectionOutlineRetries) {
                     throw new Error(`Failed to generate section outline after ${maxSectionOutlineRetries} attempts: ${error.message}`);
@@ -3668,7 +3666,7 @@ async function startOneClickProcess() {
                     
                 } catch (error) {
                     sectionRetries++;
-                    console.error(`Section ${i} generation attempt ${sectionRetries} failed:`, error.message);
+                    console.error('Section generation failed:', error.message);
                     
                     if (sectionRetries >= maxSectionRetries) {
                         throw new Error(`Failed to generate Section ${i} after ${maxSectionRetries} attempts: ${error.message}`);
@@ -5055,7 +5053,7 @@ async function closeCustomAlertWindow() { await closeCustomAlert(true); }
 
 // INITIALIZATION
 function initializeApp() {
-    console.log(`BookForge v${CONFIG.VERSION} - Initializing...`);
+    // Initialization logging removed for production
     
     // Load or initialize settings
     if (!window.aiSettings) {
@@ -5093,7 +5091,7 @@ function initializeApp() {
         content.style.display = 'none';
     });
     
-    console.log('BookForge initialization complete');
+    // Initialization complete logging removed for production
 }
 
 // ==================================================
@@ -5272,7 +5270,7 @@ window.addEventListener('unhandledrejection', function(e) {
 
 // Network status
 window.addEventListener('online', function() {
-    console.log('Connection restored');
+    // Connection restored logging removed for production
 });
 window.addEventListener('offline', function() {
     customAlert('You appear to be offline. Some features may not work until connection is restored.', 'Connection Issue');
@@ -5283,7 +5281,7 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     window.bookData = bookData;
     window.aiSettings = aiSettings;
     window.CONFIG = CONFIG;
-    console.log('Development mode: Global variables exposed for debugging');
+    // Development mode logging removed for production
 }
 
 // ==================================================
@@ -5379,7 +5377,7 @@ function showGenerationInfo(message = '') {
     // Safety timeout to auto-hide after 5 minutes if not properly cleaned up
     clearTimeout(window.generationTimeout);
     window.generationTimeout = setTimeout(() => {
-        console.warn('Generation indicator auto-hidden after timeout');
+        // Generation indicator timeout logging removed for production;
         hideGenerationInfo();
     }, 300000); // 5 minutes
 }
