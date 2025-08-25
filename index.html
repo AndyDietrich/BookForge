@@ -291,7 +291,7 @@
                             <textarea id="blueprint-content" 
                                     placeholder="Your comprehensive book blueprint will appear here..." 
                                     rows="20"
-                                    oninput="saveBlueprintContent()"></textarea>
+                                    oninput="saveBlueprintContent(); updateWordCount();"></textarea>
                             <div class="word-count" id="blueprint-word-count">0 words</div>
                         </div>
                         <div class="form-hint">Complete blueprint including structure, key points, target reader analysis, etc.</div>
@@ -330,7 +330,7 @@
                             <textarea id="outline-content" 
                                     placeholder="Detailed section outline will appear here..." 
                                     rows="25"
-                                    oninput="saveOutlineContent()"></textarea>
+                                    oninput="saveOutlineContent(); updateWordCount();"></textarea>
                             <div class="word-count" id="outline-word-count">0 words</div>
                         </div>
                         <div class="form-hint">Complete section outline with key points, examples, and structure.</div>

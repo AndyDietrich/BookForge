@@ -1643,7 +1643,7 @@ async function generateRandomIdea() {
         const selectedModel = getSelectedModel('randomIdea');
         
         const prompt = formatPrompt(aiSettings.customPrompts.randomIdea || defaultPrompts.randomIdea, {
-            genre: genre.replace('-', ' '),
+            category: genre.replace('-', ' '),
             targetAudience: audience.replace('-', ' ')
         });
 
@@ -1878,7 +1878,7 @@ function saveBlueprintContent() {
     bookData.blueprint = textarea.value;
     
     const wordCount = countWords(textarea.value);
-    const wordCountEl = document.getElementById('outline-word-count');
+    const wordCountEl = document.getElementById('blueprint-word-count');
     if (wordCountEl) {
         wordCountEl.textContent = `${wordCount} words`;
     }
@@ -1901,7 +1901,7 @@ function saveOutlineContent() {
     bookData.sectionOutline = textarea.value;
     
     const wordCount = countWords(textarea.value);
-    const wordCountEl = document.getElementById('sections-word-count');
+    const wordCountEl = document.getElementById('outline-word-count');
     if (wordCountEl) {
         wordCountEl.textContent = `${wordCount} words`;
     }
@@ -2254,8 +2254,8 @@ STYLE EXAMPLE TO EMULATE:
             targetWordCount: bookData.targetWordCount,
             sectionOutline: sectionOutline,
             previousSectionEnding: previousSectionEnding,
-            categorySpecificElements: categorySpecificElements,
-            styleExcerptSection: styleExcerptSection
+            categoryRequirements: categorySpecificElements,
+            styleExampleSection: styleExcerptSection
         });
 
         const sectionContent = await callAI(prompt, `You are a master non-fiction author writing professional ${bookData.category} content for ${bookData.targetAudience} readers.`, selectedModel);
@@ -4539,10 +4539,10 @@ function populateFormFields() {
     document.getElementById('target-word-count').value = bookData.targetWordCount || 2000;
     
     if (bookData.blueprint) {
-        const outlineContent = document.getElementById('blueprint-content');
-        if (outlineContent) {
-            outlineContent.value = bookData.blueprint;
-            saveOutlineContent();
+        const blueprintContent = document.getElementById('blueprint-content');
+        if (blueprintContent) {
+            blueprintContent.value = bookData.blueprint;
+            saveBlueprintContent();
         }
     }
     
@@ -4890,6 +4890,7 @@ function countWords(text) {
 }
 
 function updateWordCount() {
+    // Update setup field word counters
     const premise = document.getElementById('topic')?.value || '';
     const style = document.getElementById('style-direction')?.value || '';
     const styleExcerpt = document.getElementById('style-example')?.value || '';
@@ -4897,6 +4898,20 @@ function updateWordCount() {
     document.getElementById('style-word-count').textContent = `${countWords(style)} words`;
     if (document.getElementById('style-example-word-count')) {
         document.getElementById('style-example-word-count').textContent = `${countWords(styleExcerpt)} words`;
+    }
+    
+    // Update blueprint word counter
+    const blueprintContent = document.getElementById('blueprint-content')?.value || '';
+    const blueprintWordCount = document.getElementById('blueprint-word-count');
+    if (blueprintWordCount) {
+        blueprintWordCount.textContent = `${countWords(blueprintContent)} words`;
+    }
+    
+    // Update section outline word counter
+    const outlineContent = document.getElementById('outline-content')?.value || '';
+    const outlineWordCount = document.getElementById('outline-word-count');
+    if (outlineWordCount) {
+        outlineWordCount.textContent = `${countWords(outlineContent)} words`;
     }
 }
 
